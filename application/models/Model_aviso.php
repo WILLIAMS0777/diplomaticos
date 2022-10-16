@@ -29,5 +29,21 @@ class Model_aviso extends CI_Model{
 		return $this->db->query("SELECT * FROM comunicado
 		WHERE comunicado.idcomunicado='$idcomunicado' ")->row();
 	}
+	public function listar_programacion(){
+		return $this->db->query("SELECT
+		programacion.hora_salida,
+		programacion.dia_programacion,
+		placa.placa,
+		persona.nombre,
+		persona.paterno,
+		persona.materno,
+		persona.imagen
+		FROM
+		programacion 
+		INNER JOIN placa ON programacion.idplaca = placa.idplaca
+		INNER JOIN persona ON programacion.idpersona = persona.idpersona
+		")->result();
+	}
+
 }
 ?>

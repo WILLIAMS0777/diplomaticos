@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-10-2022 a las 05:46:52
+-- Tiempo de generación: 17-10-2022 a las 00:29:34
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -44,7 +44,7 @@ CREATE TABLE `comunicado` (
 
 INSERT INTO `comunicado` (`idcomunicado`, `titulo`, `descripcion`, `imagen`, `estado`, `fecha_registro`, `idtipo`) VALUES
 (21, 'CIVIL', 'hola', 'comu_1664412305.jpg', 'eliminar', '2022-09-29', 1),
-(22, 'SISTEMAS', 'comunicado', 'comu_1664412373.jpg', 'activo', '2022-09-29', 2),
+(22, 'SISTEMAS', 'comunicado', 'comu_1664412373.jpg', 'eliminar', '2022-09-29', 2),
 (23, 'HOLA', 'holas', 'comu_1664423459.png', 'activo', '2022-09-29', 2),
 (24, 'HELLO', 'hellos', 'comu_1664423485.jpg', 'eliminar', '2022-09-29', 1),
 (25, 'HEY', 'hey', 'comu_1664423506.jpg', 'activo', '2022-09-29', 1),
@@ -126,6 +126,7 @@ CREATE TABLE `persona` (
   `idpersona` int(11) NOT NULL,
   `ci` varchar(45) DEFAULT NULL,
   `expedido` varchar(10) DEFAULT NULL,
+  `imagen` varchar(45) DEFAULT NULL,
   `nombre` varchar(45) DEFAULT NULL,
   `paterno` varchar(45) DEFAULT NULL,
   `materno` varchar(45) DEFAULT NULL,
@@ -137,52 +138,71 @@ CREATE TABLE `persona` (
 -- Volcado de datos para la tabla `persona`
 --
 
-INSERT INTO `persona` (`idpersona`, `ci`, `expedido`, `nombre`, `paterno`, `materno`, `celular`, `direccion`) VALUES
-(1, '9254480', 'LP', 'WILLIAMS', 'QUISPE', 'QUISPE', 60558206, 'tunari fab'),
-(2, '9254481', 'LP', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(3, '9254481', 'LP', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(4, '9254481', 'LP', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(5, '9254481', 'LP', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(6, '9254481', 'LP', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(7, '9254481', 'LP', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(8, '9254481', 'LP', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(9, '9254481', 'LP', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(10, '9254481', NULL, '', '', '', NULL, NULL),
-(11, '9254485', 'CBB', 'WILLIAMS', 'QUISPE', 'QUISPE', 88564651, NULL),
-(12, '9254487', 'LP', 'COMPUTACION', 'QUISPE', 'MAMANI', 12345678, NULL),
-(13, '9254488', 'CBB', 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
-(14, '9254488', 'CBB', 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
-(15, '9254488', 'CBB', 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
-(16, '9254488', 'CBB', 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
-(17, '9254488', 'CBB', 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
-(18, '9254488', 'CBB', 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
-(19, '9254488', 'CBB', 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
-(20, '9254483', 'BN', 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
-(21, '25434', 'CBB', 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
-(22, '25434', 'CBB', 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
-(23, '25434', 'CBB', 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
-(24, '25434', 'CBB', 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
-(25, '25434', 'CBB', 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
-(26, '854372', 'CBB', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(27, '854372', 'CBB', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(28, '854372', 'CBB', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(29, '854372', 'CBB', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(30, '92544814', 'CBB', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(31, '92544814', 'CBB', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(32, '92544814', 'CBB', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(33, '92544818', 'LP', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(34, '92544816', 'LP', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(35, '92544819', 'CBB', 'RICHAR', 'QUISPE', 'MAMANI', 12345676, NULL),
-(36, '92544885', 'CBB', 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(37, '92544809', 'LP', 'RICHAR', 'QUISPE', 'MAMANI', 12345676, NULL),
-(38, '92544815', 'LP', 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
-(39, '92544804', 'LP', 'RICHAR', 'MAMANI', 'MAMANI', 12345678, NULL),
-(40, '9999999', 'LP', 'ABRAHAM', 'QUISPE', 'QUISPE', 1236985, NULL),
-(41, '8888888', 'LP', 'ROD', 'QUISPE', 'MAMANI', 44444444, NULL),
-(42, 'ttt', 'CBB', 'RICHAR', 'QUISPE', 'MAMANI', 60666666, NULL),
-(43, 'ttt', 'CBB', 'RICHAR', 'QUISPE', 'MAMANI', 60666666, NULL),
-(44, 'ttt', 'CBB', 'RICHAR', 'QUISPE', 'MAMANI', 60666666, NULL),
-(45, '925448198', 'CBB', 'RICHAR', '', 'MAMANI', 1236985, NULL);
+INSERT INTO `persona` (`idpersona`, `ci`, `expedido`, `imagen`, `nombre`, `paterno`, `materno`, `celular`, `direccion`) VALUES
+(1, '9254480', 'LP', NULL, 'WILLIAMS', 'QUISPE', 'QUISPE', 60558206, 'tunari fab'),
+(2, '9254481', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(3, '9254481', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(4, '9254481', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(5, '9254481', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(6, '9254481', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(7, '9254481', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(8, '9254481', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(9, '9254481', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(10, '9254481', NULL, NULL, '', '', '', NULL, NULL),
+(11, '9254485', 'CBB', NULL, 'WILLIAMS', 'QUISPE', 'QUISPE', 88564651, NULL),
+(12, '9254487', 'LP', NULL, 'COMPUTACION', 'QUISPE', 'MAMANI', 12345678, NULL),
+(13, '9254488', 'CBB', NULL, 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
+(14, '9254488', 'CBB', NULL, 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
+(15, '9254488', 'CBB', NULL, 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
+(16, '9254488', 'CBB', NULL, 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
+(17, '9254488', 'CBB', NULL, 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
+(18, '9254488', 'CBB', NULL, 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
+(19, '9254488', 'CBB', NULL, 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
+(20, '9254483', 'BN', NULL, 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
+(21, '25434', 'CBB', NULL, 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
+(22, '25434', 'CBB', NULL, 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
+(23, '25434', 'CBB', NULL, 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
+(24, '25434', 'CBB', NULL, 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
+(25, '25434', 'CBB', NULL, 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
+(26, '854372', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(27, '854372', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(28, '854372', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(29, '854372', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(30, '92544814', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(31, '92544814', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(32, '92544814', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(33, '92544818', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(34, '92544816', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(35, '92544819', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345676, NULL),
+(36, '92544885', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
+(37, '92544809', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345676, NULL),
+(38, '92544815', 'LP', NULL, 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
+(39, '92544804', 'LP', NULL, 'RICHAR', 'MAMANI', 'MAMANI', 12345678, NULL),
+(40, '9999999', 'LP', NULL, 'ABRAHAM', 'QUISPE', 'QUISPE', 1236985, NULL),
+(41, '8888888', 'LP', NULL, 'ROD', 'QUISPE', 'MAMANI', 44444444, NULL),
+(42, 'ttt', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 60666666, NULL),
+(43, 'ttt', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 60666666, NULL),
+(44, 'ttt', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 60666666, NULL),
+(45, '925448198', 'CBB', NULL, 'RICHAR', '', 'MAMANI', 1236985, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `placa`
+--
+
+CREATE TABLE `placa` (
+  `idplaca` int(11) NOT NULL,
+  `placa` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `placa`
+--
+
+INSERT INTO `placa` (`idplaca`, `placa`) VALUES
+(1, '1235ytu'),
+(2, '9874ghu');
 
 -- --------------------------------------------------------
 
@@ -207,18 +227,18 @@ CREATE TABLE `programacion` (
   `idprogramacion` int(11) NOT NULL,
   `hora_salida` time DEFAULT NULL,
   `dia_programacion` varchar(45) DEFAULT NULL,
-  `descripcion` text,
-  `placa` varchar(45) DEFAULT NULL,
-  `idpersona` int(11) NOT NULL
+  `idpersona` int(11) NOT NULL,
+  `idplaca` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `programacion`
 --
 
-INSERT INTO `programacion` (`idprogramacion`, `hora_salida`, `dia_programacion`, `descripcion`, `placa`, `idpersona`) VALUES
-(2, '04:00:00', 'DOMINGO', 'primer minibus', NULL, 0),
-(3, '06:00:00', 'lunes', 'la movilidad es blanca', '1235ytu', 1);
+INSERT INTO `programacion` (`idprogramacion`, `hora_salida`, `dia_programacion`, `idpersona`, `idplaca`) VALUES
+(2, '04:00:00', 'DOMINGO', 0, 0),
+(3, '06:00:00', 'lunes', 1, 0),
+(5, '05:00:00', 'DOMINGO', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -294,9 +314,9 @@ INSERT INTO `usuario` (`idusuario`, `imagen`, `name`, `pass`, `estado`, `fecha_r
 (11, 'user_1664286929.jpg', 'ttt', '99ebdbd711b0e1854a6c2e93f759efc2af291fd0', 'inactivo', '2022-09-19', '2022-09-19 16:36:44', 39, 1),
 (12, 'user_1664286916.png', 'abr', '6d90efc27fd7d7821bf3a03a851dd0bc453d7539', 'eliminar', '2022-09-19', '2022-09-19 16:47:39', 40, 1),
 (13, 'user_1663649413.png', 'rod', 'f9f03903429036ef609ed7ca822fddfa76155c29', 'eliminar', '2022-09-20', '2022-09-19 19:05:32', 41, 1),
-(14, 'user_1664766942.jpg', 'uuu', '7823372203bd98aeb10e6f33a6ce7dab12d13423', 'inactivo', '2022-10-03', NULL, 42, 1),
-(15, 'user_1664766943.jpg', 'uuu', '7823372203bd98aeb10e6f33a6ce7dab12d13423', 'activo', '2022-10-03', NULL, 43, 1),
-(16, 'user_1664766943.jpg', 'uuu', '7823372203bd98aeb10e6f33a6ce7dab12d13423', 'inactivo', '2022-10-03', NULL, 44, 1),
+(14, 'user_1664766942.jpg', 'uuu', '7823372203bd98aeb10e6f33a6ce7dab12d13423', 'eliminar', '2022-10-03', NULL, 42, 1),
+(15, 'user_1664766943.jpg', 'uuu', '7823372203bd98aeb10e6f33a6ce7dab12d13423', 'eliminar', '2022-10-03', NULL, 43, 1),
+(16, 'user_1664766943.jpg', 'uuu', '7823372203bd98aeb10e6f33a6ce7dab12d13423', 'eliminar', '2022-10-03', NULL, 44, 1),
 (17, '', 'as', 'df211ccdd94a63e0bcb9e6ae427a249484a49d60', 'activo', '2022-10-03', NULL, 45, 1);
 
 --
@@ -335,6 +355,12 @@ ALTER TABLE `persona`
   ADD PRIMARY KEY (`idpersona`);
 
 --
+-- Indices de la tabla `placa`
+--
+ALTER TABLE `placa`
+  ADD PRIMARY KEY (`idplaca`);
+
+--
 -- Indices de la tabla `privilegios`
 --
 ALTER TABLE `privilegios`
@@ -347,7 +373,8 @@ ALTER TABLE `privilegios`
 --
 ALTER TABLE `programacion`
   ADD PRIMARY KEY (`idprogramacion`),
-  ADD KEY `fk_programacion_persona1_idx` (`idpersona`);
+  ADD KEY `fk_programacion_persona1_idx` (`idpersona`),
+  ADD KEY `fk_programacion_placa1_idx` (`idplaca`);
 
 --
 -- Indices de la tabla `rol`
@@ -404,6 +431,12 @@ ALTER TABLE `persona`
   MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
+-- AUTO_INCREMENT de la tabla `placa`
+--
+ALTER TABLE `placa`
+  MODIFY `idplaca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT de la tabla `privilegios`
 --
 ALTER TABLE `privilegios`
@@ -413,7 +446,7 @@ ALTER TABLE `privilegios`
 -- AUTO_INCREMENT de la tabla `programacion`
 --
 ALTER TABLE `programacion`
-  MODIFY `idprogramacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idprogramacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -454,7 +487,8 @@ ALTER TABLE `privilegios`
 -- Filtros para la tabla `programacion`
 --
 ALTER TABLE `programacion`
-  ADD CONSTRAINT `fk_programacion_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_programacion_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_programacion_placa1` FOREIGN KEY (`idplaca`) REFERENCES `placa` (`idplaca`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `usuario`

@@ -1,11 +1,11 @@
 <div class="container-fluid">
 	<div class="page-header">
-	  <h1 class="text-titles">PROGRAMACION <small>.</small></h1>
+	  <h1 class="text-titles"> PROGRAMACION <small>.</small></h1>
 	</div>
 </div>
 <div class="container-fluid">
-	<h3 align="center">ADMINISTRACION DE PROGRAMACION</h3>
-	<a href="<?php echo base_url(); ?>nuevoComunicado" class="btn btn-primary"><i class="zmdi zmdi-plus"></i> &nbsp; AGREGAR NUEVO VEHIULO</a>
+	<h3 align="center">ADMINISTRACION DE COMUNICADOS</h3>
+	<a href="<?php echo base_url(); ?>nuevoCoumnicado" class="btn btn-primary"><i class="zmdi zmdi-plus"></i> &nbsp; NUEVAE PROGRAMACION</a>
 	<div class="container-fluid">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
@@ -13,25 +13,35 @@
 			</div>
 			<div class="panel-body">
 				<div class="table-responsive">
-				<?php if (!empty($listaProgramaciones)) :
-							echo "<h2>No hay programaciones</h2>";
-				else: ?>
-					<table class="table table-hover text-center" id="table_id">
+					<table class="table table-hover text-center">
 						<thead>
-							<tr>
-								<th class="text-center">HORARIO</th>
-								<th class="text-center">LUNES</th>
-								<th class="text-center">MARTES</th>
-								<th class="text-center">MIERCOLES</th>
-								<th class="text-center">JUEVES</th>
-								<th class="text-center">VIERNES</th>
-								<th class="text-center">SABADO</th>
-								<th class="text-center">DOMINGO</th>
-							</tr>
+						<tr>
+                        	<th class="zui-sticky-col">HORARIO</th>
+                            <th>LUNES</th>
+                            <th>MARTES</th>
+                            <th>MIERCOLES</th>
+                            <th>JUEVES</th>
+                            <th>VIERNES</th>
+                        	<th>SABADO</th>
+                            <th>DOMINGO</th>
+                        </tr>
 						</thead>
-						<!-- Podrias agregar el lenguaje PHP a las variables de entorno para tu usuario -->
-						
-
+						<tbody>
+							<?php foreach ($this->Model_aviso->listar_programacion() as $objeto) { ?>
+							<tr>
+								
+								<td><?php echo $objeto->hora_salida; ?></td>
+								<td><?php echo $objeto->imagen; ?> <br>
+								 	<?php echo $objeto->nombre.' '.$objeto->paterno.' '.$objeto->materno; ?> <br>
+								  	<?php echo $objeto->placa; ?> <br> 
+									<button class="btnEdit">editar</button>
+								</td>
+								
+								
+								
+							</tr>
+							<?php } ?>
+						</tbody>
 					</table>
 					
 				</div>
