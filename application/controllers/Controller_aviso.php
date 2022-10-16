@@ -11,6 +11,7 @@ class Controller_aviso extends CI_Controller{
 	}
 	public function nuevoComunicado(){
 		$datos['contenido']="file_comunicado/form_nuevoComunicado";
+
 		$this->load->view('plantilla',$datos);
 	}
 	public function guardarNuevoComunicado(){
@@ -89,14 +90,20 @@ class Controller_aviso extends CI_Controller{
 	//inicio 
 	//listado de programacion salida de autos 
 	//lunes 1 2 3 4 5 .......
-	//martes 5 1 2 3 4 ......
-	//miercoles 4 5 1 2 3 ...... 
+	//martes 5 1 2 3 4 6 7
+	//miercoles 7 4 5 1 2 3 
 	// 
 
 	//solo tiene que capturar los que estan habilitados (activos).
 	// un auto si o si sale en la tarde
+
+	public function filtrarProgramaciones(){
+
+	}
+
 	public function programacion(){
 		$datos['contenido']="file_programacion/adminProgramacion_index";
+		$datos['listaProgramaciones'] = $this->filtrarProgramaciones();
 		$this->load->view('plantilla',$datos);
 	}
 

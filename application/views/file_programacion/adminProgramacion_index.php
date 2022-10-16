@@ -13,6 +13,9 @@
 			</div>
 			<div class="panel-body">
 				<div class="table-responsive">
+				<?php if (!empty($listaProgramaciones)) :
+							echo "<h2>No hay programaciones</h2>";
+				else: ?>
 					<table class="table table-hover text-center" id="table_id">
 						<thead>
 							<tr>
@@ -26,8 +29,8 @@
 								<th class="text-center">DOMINGO</th>
 							</tr>
 						</thead>
+						<!-- Podrias agregar el lenguaje PHP a las variables de entorno para tu usuario -->
 						
-
 
 					</table>
 					
