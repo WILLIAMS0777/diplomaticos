@@ -4,7 +4,14 @@ class Controller_aviso extends CI_Controller{
 		parent::__construct();
 		$this->load->model('Model_aviso');
 	}
-	//inicio
+
+	//inicio socio
+	public function socio(){
+		$datos['contenido']="file_socio/adminSocio_index";
+		$this->load->view('plantilla',$datos);
+	}
+	//fin socio
+	//inicio comunicado
 	public function comunicado(){
 		$datos['contenido']="file_comunicado/adminComunicado_index";
 		$this->load->view('plantilla',$datos);
@@ -85,13 +92,77 @@ class Controller_aviso extends CI_Controller{
 		);
 		$this->Model_aviso->editar_tabla_sys('comunicado',$objeto,'idcomunicado',$idcomunicado);
 	}
-	//fin
+	//fin comunicado
+
+	//inicio evento
+	public function evento(){
+		$datos['contenido']="file_evento/adminEvento_index";
+		$this->load->view('plantilla',$datos);
+	}
+	public function nuevoEvento(){
+		$datos['contenido']="file_evento/form_nuevoEvento";
+		$this->load->view('plantilla',$datos);
+	}
+	public function guardarNuevoEvento(){
+		$titulo=mb_strtoupper($this->input->post('titulo'),'utf-8');
+		$descripcion=$this->input->post('descripcion');
+		$imagen=$_FILES['imagen']['tmp_name'];
+		if ($imagen) {
+			$ext=explode('.', $_FILES['imagen']['name']);
+			$img=round(microtime(true)).'.'.end($ext);
+			move_uploaded_file($_FILES['imagen']['tmp_name'],"assets/imagenes_evento/eve_".$img);
+			$imagen="eve_".$img;
+		}else{
+			$imagen='';
+		}
+		$objeto=array(
+			'imagen'=>$imagen,
+			'titulo'=>$titulo,
+			'descripcion'=>$descripcion,
+			'imagen'=>$imagen,
+			'estado'=>'activo',
+			'fecha_evento'=>date('Y-m-d')
+		);
+		$this->Model_aviso->insertar_tabla_sys('eventos',$objeto);
+	}
+	public function cambiar_estado_evento(){
+		$ideventos=$this->input->post('ideventos');
+		$estado=$this->input->post('estado');
+		if ($estado=='1') {
+			$valor_estado='inactivo';
+		}else{
+			$valor_estado='activo';
+		}
+		$obj=array('estado'=>$valor_estado);
+		$this->Model_aviso->editar_tabla_sys('eventos',$obj,'ideventos',$ideventos);
+	}
+	public function eliminar_evento(){
+		$ideventos=$this->input->post('ideventos');
+		$obj=array('estado'=>'eliminar');
+		$this->Model_aviso->editar_tabla_sys('eventos',$obj,'ideventos',$ideventos);
+	}
+	//fin evento
 
 	//inicio 
 	
 	public function programacion(){
 		$datos['contenido']="file_programacion/adminProgramacion_index";
+		
+		// array asociativo horario
+
+
+		// cargar modelo aviso 
+		
+		// echo "Llega hasta aqui";
+		// echo var_dump($this->Model_aviso->listar_programacion());
+		// exit;
+
+		// $datos['horarios'] = array('04:30','05:00', '05:30','06:00','06:30','07:00','07:30','08:00','08:30')
+		$datos['horarios'] = $this->Model_aviso->obtener_horas();
 		$this->load->view('plantilla',$datos);
+
+
+
 	}
 
 	//fin

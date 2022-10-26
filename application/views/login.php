@@ -51,7 +51,7 @@
 					if(valores[0]===0){
 						$("#error").html("<b style='color:#ff0000;'>ERROR DE USUARIO Y CONTRASEÑA</b>");
 					}else{
-						window.location="<?php echo base_url(); ?>"
+						window.location="<?php echo base_url().'adminInicio'; ?>"
 					}
 				}
 			})

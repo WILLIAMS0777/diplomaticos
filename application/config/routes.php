@@ -49,15 +49,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Controller_usuario';
+$route['default_controller'] = 'Controller_pagina';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = 'Controller_usuario/login';
+$route['iniciar_sesion'] = 'Controller_usuario/index';
 $route['salir'] = 'Controller_usuario/salir';
 
 //inicio
 $route['adminInicio'] = 'Controller_usuario/adminInicio';
+//fin
+
+//inicio
+$route['institucion'] = 'Controller_usuario/adminInstitucion';
 //fin
 
 //inicio
@@ -82,7 +87,17 @@ $route['privilegios'] = 'Controller_usuario/privilegios';
 $route['roles'] = 'Controller_usuario/roles';
 //fin
 
-//inicio
+//inicio socio
+$route['socio'] = 'Controller_aviso/socio';
+/*$route['nuevoComunicado'] = 'Controller_aviso/nuevoComunicado';
+$route['guardarNuevoComunicado'] = 'Controller_aviso/guardarNuevoComunicado';
+$route['cambiar_estado_comunicado'] = 'Controller_aviso/cambiar_estado_comunicado';
+$route['eliminar_comunicado'] = 'Controller_aviso/eliminar_comunicado';
+$route['editarComunicado/(:any)'] = 'Controller_aviso/editarComunicado/$1';
+$route['guardarEditarComunicado'] = 'Controller_aviso/guardarEditarComunicado';*/
+//fin socio
+
+//inicio comunicado
 $route['comunicado'] = 'Controller_aviso/comunicado';
 $route['nuevoComunicado'] = 'Controller_aviso/nuevoComunicado';
 $route['guardarNuevoComunicado'] = 'Controller_aviso/guardarNuevoComunicado';
@@ -90,8 +105,29 @@ $route['cambiar_estado_comunicado'] = 'Controller_aviso/cambiar_estado_comunicad
 $route['eliminar_comunicado'] = 'Controller_aviso/eliminar_comunicado';
 $route['editarComunicado/(:any)'] = 'Controller_aviso/editarComunicado/$1';
 $route['guardarEditarComunicado'] = 'Controller_aviso/guardarEditarComunicado';
-//fin
+//fin comunicado
+
+// inicio evento
+$route['evento'] = 'Controller_aviso/evento';
+$route['nuevoEvento'] = 'Controller_aviso/nuevoEvento';
+$route['guardarNuevoEvento'] = 'Controller_aviso/guardarNuevoEvento';
+$route['cambiar_estado_evento'] = 'Controller_aviso/cambiar_estado_evento';
+$route['eliminar_evento'] = 'Controller_aviso/eliminar_evento';
+$route['editarComunicado/(:any)'] = 'Controller_aviso/editarComunicado/$1';
+$route['guardarEditarComunicado'] = 'Controller_aviso/guardarEditarComunicado';
+//fin evento
 
 //inicio
 $route['programacion'] = 'Controller_aviso/programacion';
 //fin
+
+//inicio
+$route['home'] = 'Controller_pagina/home';
+//fin
+
+// inicio frontend 
+$route['portada'] = 'Controller_pagina/portada';
+$route['quienes_somos'] = 'Controller_pagina/quienes_somos';
+$route['comunicados'] = 'Controller_pagina/comunicados';
+$route['eventos'] = 'Controller_pagina/eventos';
+//fin frontend

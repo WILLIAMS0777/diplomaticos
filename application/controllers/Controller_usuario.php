@@ -27,7 +27,10 @@ class Controller_usuario extends CI_Controller{
 			$this->session->set_userdata($datos);
 			echo json_encode(array(0=>1));
 		}else{
+
+			// Este codigo retorna un json como respuesta a la peticion
 			echo json_encode(array(0=>0));
+			
 		}
 	}
 
@@ -41,6 +44,12 @@ class Controller_usuario extends CI_Controller{
 		$this->load->view('plantilla',$datos);
 	}
 
+	//inicio
+	public function adminInstitucion(){
+		$datos['contenido']="file_institucion/admin_institucion";
+		$this->load->view('plantilla',$datos);
+	}
+	//fin
 	public function adminUsuario(){
 		$datos['contenido']="file_usuario/adminUsuario_index";
 		$this->load->view('plantilla',$datos);

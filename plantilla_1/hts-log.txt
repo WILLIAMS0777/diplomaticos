@@ -1,0 +1,21 @@
+HTTrack3.49-2+htsswf+htsjava launched on Fri, 25 Sep 2020 16:27:57 at https://keenitsolutions.com/products/html/educavo/index.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://keenitsolutions.com/products/html/educavo/index.html -O1 "C:\Users\pc1\Videos\plantilla_1" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+16:27:59	Warning: 	Note: due to https://keenitsolutions.com remote robots.txt rules, links beginning with these path will be forbidden: /administrator/, /bin/, /cache/, /cli/, /components/, /includes/, /installation/, /language/, /layouts/, /libraries/, /logs/, /media/, /modules/, /plugins/, /templates/, /tmp/ (see in the options to disable this)
+16:28:25	Error: 	"Not Found" (404) at link https://keenitsolutions.com/products/html/educavo/apple-touch-icon.png (from https://keenitsolutions.com/products/html/educavo/index.html)
+16:28:37	Error: 	"Not Found" (404) at link https://keenitsolutions.com/products/html/educavo/login (from https://keenitsolutions.com/products/html/educavo/index.html)
+16:28:37	Error: 	"Not Found" (404) at link https://keenitsolutions.com/products/html/educavo/register (from https://keenitsolutions.com/products/html/educavo/index.html)
+16:29:17	Warning: 	File not parsed, looks like binary: https://keenitsolutions.com/products/html/educavo/assets/fonts/fontawesome-webfont.woff2?v=4.7.0
+16:29:17	Error: 	"Not Found" (404) at link https://keenitsolutions.com/products/html/educavo/assets/css/owl.video.play.png (from https://keenitsolutions.com/products/html/educavo/assets/css/owl.carousel.css)
+16:29:17	Warning: 	Warning: store application/octet-stream without scan: C:/Users/pc1/Videos/plantilla_1/keenitsolutions.com/products/html/educavo/assets/fonts/linea-basic-10.svg
+16:29:17	Warning: 	File not parsed, looks like binary: https://keenitsolutions.com/products/html/educavo/assets/fonts/Flaticon.woff2
+16:29:17	Error: 	"Not Found" (404) at link https://keenitsolutions.com/products/html/educavo/team-singal.html (from https://keenitsolutions.com/products/html/educavo/index4.html)
+16:29:17	Error: 	"Not Found" (404) at link https://keenitsolutions.com/products/html/educavo/tel+0885898745 (from https://keenitsolutions.com/products/html/educavo/contact.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 1 minutes 20 seconds : 320 links scanned, 313 files written (17159984 bytes overall) [15879892 bytes received at 198498 bytes/sec], 1635908 bytes transferred using HTTP compression in 41 files, ratio 12%, 45.7 requests per connection
+(6 errors, 4 warnings, 0 messages)

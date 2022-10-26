@@ -11,7 +11,31 @@ class Model_aviso extends CI_Model{
 	public function editar_tabla_sys($tabla,$obj,$idtabla,$id){
 		$this->db->where($idtabla,$id);
 		$this->db->update($tabla,$obj);
+
+		
 	}
+
+	//inicio socio
+	public function listar_socios(){
+		return $this->db->query("SELECT
+		socio.ingreso,
+		persona.nombre,
+		persona.paterno,
+		persona.materno,
+		persona.idpersona,
+		placa.idplaca
+		FROM socio
+		INNER JOIN persona ON socio.idpersona = persona.idpersona
+		INNER JOIN placa ON socio.idplaca = placa.idplaca
+		")->result();
+	}
+	/*public function editarComunicado($idcomunicado){
+		return $this->db->query("SELECT * FROM comunicado
+		WHERE comunicado.idcomunicado='$idcomunicado' ")->row();
+	}*/
+	//fin socio
+
+	//inicio comunicado
 	public function listar_comunicados(){
 		return $this->db->query("SELECT
 		comunicado.titulo,
@@ -29,21 +53,66 @@ class Model_aviso extends CI_Model{
 		return $this->db->query("SELECT * FROM comunicado
 		WHERE comunicado.idcomunicado='$idcomunicado' ")->row();
 	}
+	//fin comunicado
+	//inicio evento
+	public function listar_evento(){
+		return $this->db->query("SELECT
+		eventos.titulo,
+		eventos.descripcion,
+		eventos.ideventos,
+		eventos.imagen,
+		eventos.estado,
+		eventos.fecha_evento
+		FROM
+		eventos
+		")->result();
+	}
+	public function editarEvento($idevento){
+		return $this->db->query("SELECT * FROM comunicado
+		WHERE comunicado.idcomunicado='$idcomunicado' ")->row();
+	}
+	//fin evento
+
+	//programacion inicio
 	public function listar_programacion(){
 		return $this->db->query("SELECT
-		programacion.hora_salida,
-		programacion.dia_programacion,
 		placa.placa,
 		persona.nombre,
 		persona.paterno,
 		persona.materno,
-		persona.imagen
+		persona.imagen,
+        hora_salida.hora_salida,
+        dias.dia
 		FROM
 		programacion 
 		INNER JOIN placa ON programacion.idplaca = placa.idplaca
 		INNER JOIN persona ON programacion.idpersona = persona.idpersona
+		INNER JOIN dias ON programacion.idprogramacion = dias.idprogramacion
+        INNER JOIN hora_salida ON dias.iddias = hora_salida.iddias
+		ORDER BY dias.dia asc, hora_salida.hora_salida asc
 		")->result();
 	}
+
+	public function obtener_horas(){
+		return $this->db->query("SELECT
+		hora_salida 
+        FROM hora_salida
+		ORDER BY hora_salida asc
+		")->result();
+	}
+
+
+
+	//programacion fin
+	//  
+	/*ALTER TABLE orders
+	ADD CONSTRAINT fk_cat
+	FOREIGN KEY (category_id)
+	REFERENCES categories(id);*/
+
+
+
+	
 
 }
 ?>

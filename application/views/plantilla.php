@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Inicio</title>
+	<title>DIPLOMATICOS</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/main.css">
@@ -50,7 +50,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo base_url(); ?>adminInicio">
+					<a href="<?php echo base_url(); ?>institucion">
 						<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Istitucion
 					</a>
 				</li>
@@ -79,13 +79,16 @@
 					</a>
 					<ul class="list-unstyled full-box">
 						<li>
+							<a href="<?php echo base_url(); ?>socio"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Socios</a>
+						</li>
+						<li>
 							<a href="<?php echo base_url(); ?>programacion"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Programacion</a>
 						</li>
 						<li>
 							<a href="<?php echo base_url(); ?>comunicado"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Comunicados</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url(); ?>eventos"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Eventos</a>
+							<a href="<?php echo base_url(); ?>evento"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Eventos</a>
 						</li>
 					</ul>
 				</li>

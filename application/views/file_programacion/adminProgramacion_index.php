@@ -16,7 +16,8 @@
 					<table class="table table-hover text-center">
 						<thead>
 						<tr>
-                        	<th class="zui-sticky-col">HORARIO</th>
+							<th>#</th>
+							<th class="zui-sticky-col">HORARIO</th>
                             <th>LUNES</th>
                             <th>MARTES</th>
                             <th>MIERCOLES</th>
@@ -27,23 +28,38 @@
                         </tr>
 						</thead>
 						<tbody>
-							<?php foreach ($this->Model_aviso->listar_programacion() as $objeto) { ?>
-							<tr>
-								
-								<td><?php echo $objeto->hora_salida; ?></td>
-								<td><?php echo $objeto->imagen; ?> <br>
-								 	<?php echo $objeto->nombre.' '.$objeto->paterno.' '.$objeto->materno; ?> <br>
-								  	<?php echo $objeto->placa; ?> <br> 
-									<button class="btnEdit">editar</button>
-								</td>
-								
-								
-								
+							<?php $con=1; foreach ($this->Model_aviso->listar_programacion()  as $item):?>
+									<tr>
+									<td><?php echo $con++; ?></td>
+									<?php 
+									switch ($item->dia){
+										case 'LUNES':
+												echo "<td>".$item->hora_salida." - ".$item->placa." - ".$item->nombre." - </td>";
+											break;
+											
+										case 'MARTES':
+											echo "<td> </td>";
+											echo "<td>".$item->hora_salida." - ".$item->placa." - ".$item->nombre." - </td>";
+												break;
+
+										case 'MIERCOLES':
+											echo "<td> </td>";
+											echo "<td>".$item->placa." - ".$item->nombre." - </td>";
+												break;
+										
+										default:
+											# code...
+											break;
+									}
+									?>
 							</tr>
-							<?php } ?>
+								
+
+							<?php endforeach; ?>
+
+
 						</tbody>
 					</table>
-					
 				</div>
 			</div>
 		</div>

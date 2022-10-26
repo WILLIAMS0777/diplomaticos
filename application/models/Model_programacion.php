@@ -16,7 +16,7 @@ class Model_aviso extends CI_Model{
 	
 
 
-	public function listar_programcion(){
+	public function listar_programacion(){
 		return $this->db->query("SELECT
 		p.hora_salida,
 		p.dia_programacion,
