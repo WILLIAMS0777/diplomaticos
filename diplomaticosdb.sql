@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2022 a las 00:29:34
+-- Tiempo de generación: 28-10-2022 a las 06:15:44
 -- Versión del servidor: 10.1.33-MariaDB
 -- Versión de PHP: 7.2.6
 
@@ -43,12 +43,42 @@ CREATE TABLE `comunicado` (
 --
 
 INSERT INTO `comunicado` (`idcomunicado`, `titulo`, `descripcion`, `imagen`, `estado`, `fecha_registro`, `idtipo`) VALUES
-(21, 'CIVIL', 'hola', 'comu_1664412305.jpg', 'eliminar', '2022-09-29', 1),
-(22, 'SISTEMAS', 'comunicado', 'comu_1664412373.jpg', 'eliminar', '2022-09-29', 2),
-(23, 'HOLA', 'holas', 'comu_1664423459.png', 'activo', '2022-09-29', 2),
-(24, 'HELLO', 'hellos', 'comu_1664423485.jpg', 'eliminar', '2022-09-29', 1),
-(25, 'HEY', 'hey', 'comu_1664423506.jpg', 'activo', '2022-09-29', 1),
-(26, 'SISTEMASR', 'sistemas', 'comu_1664428457.jpg', 'activo', '2022-09-29', 1);
+(21, 'CIVIL', 'hola', 'comu_1664412305.jpg', 'activo', '2022-09-29', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `dias`
+--
+
+CREATE TABLE `dias` (
+  `iddias` int(11) NOT NULL,
+  `dia` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `dias`
+--
+
+INSERT INTO `dias` (`iddias`, `dia`) VALUES
+(1, 'LUNES'),
+(2, 'MARTES'),
+(3, 'MIERCOLES'),
+(4, 'JUEVES'),
+(5, 'VIERNES'),
+(6, 'SABADO'),
+(7, 'DOMINGO');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `diastt`
+--
+
+CREATE TABLE `diastt` (
+  `iddiastt` int(11) NOT NULL,
+  `diasttcol` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -61,18 +91,42 @@ CREATE TABLE `eventos` (
   `titulo` varchar(45) DEFAULT NULL,
   `descripcion` text,
   `imagen` varchar(45) DEFAULT NULL,
-  `fecha_evento` date DEFAULT NULL
+  `fecha_evento` date DEFAULT NULL,
+  `estado` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `eventos`
 --
 
-INSERT INTO `eventos` (`ideventos`, `titulo`, `descripcion`, `imagen`, `fecha_evento`) VALUES
-(1, 'evento deportivo', 'la realizacion de evento deportivo en el sind', NULL, '2022-09-22'),
-(2, 'evento deportivo', 'la realizacion de evento deportivo en el sind', NULL, '2022-09-22'),
-(3, 'evento deportivo', 'la realizacion de evento deportivo en el sind', NULL, '2022-09-22'),
-(4, 'evento deportivo', 'fffffffffffffffffffffffffff', NULL, '2022-09-22');
+INSERT INTO `eventos` (`ideventos`, `titulo`, `descripcion`, `imagen`, `fecha_evento`, `estado`) VALUES
+(5, 'CIVIL', 'comunicadotrgtg', 'eve_1666747667.png', '2022-10-26', 'inactivo'),
+(6, 'EVENTO DEPORTIVO', 'El evento deportivo se realizara en la zona de rio seco', 'eve_1666747979.jpg', '2022-10-26', 'activo');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `hora_salida`
+--
+
+CREATE TABLE `hora_salida` (
+  `idhora_salida` int(11) NOT NULL,
+  `hora_salida` time DEFAULT NULL,
+  `iddias` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `hora_salida`
+--
+
+INSERT INTO `hora_salida` (`idhora_salida`, `hora_salida`, `iddias`) VALUES
+(1, '05:00:00', 1),
+(2, '06:00:00', 2),
+(3, '04:00:00', 3),
+(4, '07:00:00', 4),
+(5, '07:10:00', 5),
+(6, '07:20:00', 6),
+(7, '08:00:00', 7);
 
 -- --------------------------------------------------------
 
@@ -102,7 +156,7 @@ CREATE TABLE `institucion` (
 --
 
 INSERT INTO `institucion` (`idinstitucion`, `in_logo`, `in_nombre`, `in_correo`, `in_celular`, `in_facebook`, `in_ubicacion`, `in_google_maps`, `in_descripcion`, `in_mision`, `in_vision`, `in_objetivo`, `in_nombre_strio_general`, `in_imagen_strio_general`) VALUES
-(1, NULL, 'wils', 'wils@gmail.com', '44444444', 'face', 'chejepampa', 'google', 'Discurso oral o escrito en el que se explica cómo es una cosa, una persona o un lugar para ofrecer una imagen o una idea completa de ellos.', 'Encargo o poder que un gobierno le da a una persona, especialmente a un diplomático, para ir a desempeñar un trabajo o una determinada función en algún lugar.\r\n\"misión diplomática\"', 'Percepción de las realidades físicas a través de la vista.\r\n\"tengo una mala visión de los objetos que están a lo lejos\"', '[persona] Que hace juicios de valor atendiendo a los hechos y la lógica, y no a los propios sentimientos o sensaciones.\r\n\"las implicaciones afectivas impiden que una madre sea objetiva con sus hijos\"', 'fermin', NULL);
+(1, NULL, 'wils', 'wils@gmail.com', '44444444', 'face', 'chejepampa', 'google', 'Discurso oral o escrito en el que se explica cómo es una cosa, una persona o un lugar para ofrecer una imagen o una idea completa de ellos.', 'El Sindicato Mixto de Transportes “Diplomáticos” tiene como misión proporcionar un apoyo a todos los socios, con el objetivo de crecer, proveer un buen servicio a los clientes en el transporte de los mismos y también ser eficaz como sindicato de transportes.', 'La visión del Sindicato Mixto de Transportes “Diplomáticos” es brindar el mejor servicio de transporte y también ser eficaz en el servicio de los clientes y también como sindicato crecer en lo social e institucional del sindicato.', 'El sindicato Mixto de Transportes “Diplomáticos” tiene como objetivo proteger, unir, organizar y representar a todos los socios quienes transportan los pasajeros a su destino y también brindar el servicio necesario a los clientes. El sindicato está conformado por un cuerpo directorio que ejercen sus funciones.', 'fermin', NULL);
 
 -- --------------------------------------------------------
 
@@ -140,50 +194,8 @@ CREATE TABLE `persona` (
 
 INSERT INTO `persona` (`idpersona`, `ci`, `expedido`, `imagen`, `nombre`, `paterno`, `materno`, `celular`, `direccion`) VALUES
 (1, '9254480', 'LP', NULL, 'WILLIAMS', 'QUISPE', 'QUISPE', 60558206, 'tunari fab'),
-(2, '9254481', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(3, '9254481', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(4, '9254481', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(5, '9254481', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(6, '9254481', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(7, '9254481', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(8, '9254481', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(9, '9254481', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(10, '9254481', NULL, NULL, '', '', '', NULL, NULL),
-(11, '9254485', 'CBB', NULL, 'WILLIAMS', 'QUISPE', 'QUISPE', 88564651, NULL),
-(12, '9254487', 'LP', NULL, 'COMPUTACION', 'QUISPE', 'MAMANI', 12345678, NULL),
-(13, '9254488', 'CBB', NULL, 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
-(14, '9254488', 'CBB', NULL, 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
-(15, '9254488', 'CBB', NULL, 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
-(16, '9254488', 'CBB', NULL, 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
-(17, '9254488', 'CBB', NULL, 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
-(18, '9254488', 'CBB', NULL, 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
-(19, '9254488', 'CBB', NULL, 'RICHAR', 'QUISPE', 'QUISPE', 12345678, NULL),
-(20, '9254483', 'BN', NULL, 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
-(21, '25434', 'CBB', NULL, 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
-(22, '25434', 'CBB', NULL, 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
-(23, '25434', 'CBB', NULL, 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
-(24, '25434', 'CBB', NULL, 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
-(25, '25434', 'CBB', NULL, 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
-(26, '854372', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(27, '854372', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(28, '854372', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(29, '854372', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(30, '92544814', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(31, '92544814', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(32, '92544814', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(33, '92544818', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(34, '92544816', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(35, '92544819', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345676, NULL),
-(36, '92544885', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345678, NULL),
-(37, '92544809', 'LP', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 12345676, NULL),
-(38, '92544815', 'LP', NULL, 'MICROSOFT OFFICE', 'QUISPE', 'MAMANI', 12345678, NULL),
-(39, '92544804', 'LP', NULL, 'RICHAR', 'MAMANI', 'MAMANI', 12345678, NULL),
-(40, '9999999', 'LP', NULL, 'ABRAHAM', 'QUISPE', 'QUISPE', 1236985, NULL),
-(41, '8888888', 'LP', NULL, 'ROD', 'QUISPE', 'MAMANI', 44444444, NULL),
-(42, 'ttt', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 60666666, NULL),
-(43, 'ttt', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 60666666, NULL),
-(44, 'ttt', 'CBB', NULL, 'RICHAR', 'QUISPE', 'MAMANI', 60666666, NULL),
-(45, '925448198', 'CBB', NULL, 'RICHAR', '', 'MAMANI', 1236985, NULL);
+(46, '925448197', 'LP', NULL, 'RICHAR', 'QUISPE', 'QUISPE', 60666666, NULL),
+(47, '12345678', 'LP', NULL, 'WILSON', 'CRUZ', 'CRUZ', 87451236, NULL);
 
 -- --------------------------------------------------------
 
@@ -202,7 +214,9 @@ CREATE TABLE `placa` (
 
 INSERT INTO `placa` (`idplaca`, `placa`) VALUES
 (1, '1235ytu'),
-(2, '9874ghu');
+(2, '9874ghu'),
+(3, '888888'),
+(777777, NULL);
 
 -- --------------------------------------------------------
 
@@ -225,20 +239,22 @@ CREATE TABLE `privilegios` (
 
 CREATE TABLE `programacion` (
   `idprogramacion` int(11) NOT NULL,
-  `hora_salida` time DEFAULT NULL,
-  `dia_programacion` varchar(45) DEFAULT NULL,
-  `idpersona` int(11) NOT NULL,
-  `idplaca` int(11) NOT NULL
+  `idplaca` int(11) NOT NULL,
+  `iddias` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `programacion`
 --
 
-INSERT INTO `programacion` (`idprogramacion`, `hora_salida`, `dia_programacion`, `idpersona`, `idplaca`) VALUES
-(2, '04:00:00', 'DOMINGO', 0, 0),
-(3, '06:00:00', 'lunes', 1, 0),
-(5, '05:00:00', 'DOMINGO', 1, 1);
+INSERT INTO `programacion` (`idprogramacion`, `idplaca`, `iddias`) VALUES
+(8, 1, 1),
+(9, 2, 3),
+(10, 1, 4),
+(11, 2, 5),
+(12, 1, 1),
+(13, 2, 3),
+(14, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -258,6 +274,28 @@ CREATE TABLE `rol` (
 INSERT INTO `rol` (`idrol`, `roles`) VALUES
 (1, 'ADMINISTRADOR'),
 (2, 'ENCARGADO');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `socio`
+--
+
+CREATE TABLE `socio` (
+  `idsocio` int(11) NOT NULL,
+  `ingreso` varchar(10) DEFAULT NULL,
+  `imagen` varchar(45) DEFAULT NULL,
+  `idplaca` int(11) NOT NULL,
+  `idpersona` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `socio`
+--
+
+INSERT INTO `socio` (`idsocio`, `ingreso`, `imagen`, `idplaca`, `idpersona`) VALUES
+(3, '2000', NULL, 1, 1),
+(4, '1000', NULL, 2, 46);
 
 -- --------------------------------------------------------
 
@@ -302,22 +340,8 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`idusuario`, `imagen`, `name`, `pass`, `estado`, `fecha_registro`, `update`, `idpersona`, `idrol`) VALUES
 (1, 'user_1663649482.jpg', 'wil', '9a0378ef1bf1713c8f63a8af1eb0f0c8a6ecc5f4', 'activo', '2022-09-02', '2022-09-02 14:15:57', 1, 1),
-(2, '', 'williams', 'b49a5780a99ea81284fc0746a78f84a30e4d5c73', 'eliminar', '2022-09-06', '2022-09-19 17:39:42', 10, 1),
-(3, 'user_1662439844.jpg', 'wils', '55f59fb896941433eeddc18c9801ed3cddaec003', 'eliminar', '2022-09-06', '2022-09-06 00:50:44', 11, 1),
-(4, 'user_1662440104.jpg', 'dar', '08fb52cf0b3735a314211e242d1b09700519b162', 'eliminar', '2022-09-06', '2022-09-19 18:31:56', 12, 1),
-(5, 'user_1662440674.jpg', 'jul', '18a6de6a0925c55116694e1a03e79c0c06251723', 'eliminar', '2022-09-06', '2022-09-06 01:04:34', 20, 1),
-(6, '', 'wilsh', '55f59fb896941433eeddc18c9801ed3cddaec003', 'eliminar', '2022-09-06', '2022-09-19 17:39:34', 33, 1),
-(7, '', 'juan', 'b49a5780a99ea81284fc0746a78f84a30e4d5c73', 'eliminar', '2022-09-06', '2022-09-19 17:39:28', 35, 1),
-(8, '', 'williamsy', 'b49a5780a99ea81284fc0746a78f84a30e4d5c73', 'eliminar', '2022-09-06', '2022-09-19 17:39:16', 36, 1),
-(9, 'user_1663609948.jpg', 'ric', 'ff4dc518fb3d5d20a81fd1c6faff577641edf4b9', 'eliminar', '2022-09-19', '2022-09-19 16:36:41', 37, 1),
-(10, 'user_1663617438.jpg', 'rrr', '8578173555a47d4ea49e697badfda270dee0858f', 'eliminar', '2022-09-19', '2022-09-19 16:36:31', 38, 1),
-(11, 'user_1664286929.jpg', 'ttt', '99ebdbd711b0e1854a6c2e93f759efc2af291fd0', 'inactivo', '2022-09-19', '2022-09-19 16:36:44', 39, 1),
-(12, 'user_1664286916.png', 'abr', '6d90efc27fd7d7821bf3a03a851dd0bc453d7539', 'eliminar', '2022-09-19', '2022-09-19 16:47:39', 40, 1),
-(13, 'user_1663649413.png', 'rod', 'f9f03903429036ef609ed7ca822fddfa76155c29', 'eliminar', '2022-09-20', '2022-09-19 19:05:32', 41, 1),
-(14, 'user_1664766942.jpg', 'uuu', '7823372203bd98aeb10e6f33a6ce7dab12d13423', 'eliminar', '2022-10-03', NULL, 42, 1),
-(15, 'user_1664766943.jpg', 'uuu', '7823372203bd98aeb10e6f33a6ce7dab12d13423', 'eliminar', '2022-10-03', NULL, 43, 1),
-(16, 'user_1664766943.jpg', 'uuu', '7823372203bd98aeb10e6f33a6ce7dab12d13423', 'eliminar', '2022-10-03', NULL, 44, 1),
-(17, '', 'as', 'df211ccdd94a63e0bcb9e6ae427a249484a49d60', 'activo', '2022-10-03', NULL, 45, 1);
+(18, 'user_1666748342.png', 'riq', '119b33ded79bc43350cad3026727bed2549c7648', 'activo', '2022-10-26', NULL, 46, 1),
+(19, 'user_1666807947.png', 'son', 'f0cbc0ee7d5556a0827bb60017d6a8268514baa7', 'activo', '2022-10-26', NULL, 47, 1);
 
 --
 -- Índices para tablas volcadas
@@ -331,10 +355,30 @@ ALTER TABLE `comunicado`
   ADD KEY `fk_comunicado_tipo1_idx` (`idtipo`);
 
 --
+-- Indices de la tabla `dias`
+--
+ALTER TABLE `dias`
+  ADD PRIMARY KEY (`iddias`);
+
+--
+-- Indices de la tabla `diastt`
+--
+ALTER TABLE `diastt`
+  ADD PRIMARY KEY (`iddiastt`);
+
+--
 -- Indices de la tabla `eventos`
 --
 ALTER TABLE `eventos`
   ADD PRIMARY KEY (`ideventos`);
+
+--
+-- Indices de la tabla `hora_salida`
+--
+ALTER TABLE `hora_salida`
+  ADD PRIMARY KEY (`idhora_salida`),
+  ADD UNIQUE KEY `hora_salida_UNIQUE` (`hora_salida`),
+  ADD KEY `fk_hora_salida_diag1_idx` (`iddias`);
 
 --
 -- Indices de la tabla `institucion`
@@ -373,14 +417,22 @@ ALTER TABLE `privilegios`
 --
 ALTER TABLE `programacion`
   ADD PRIMARY KEY (`idprogramacion`),
-  ADD KEY `fk_programacion_persona1_idx` (`idpersona`),
-  ADD KEY `fk_programacion_placa1_idx` (`idplaca`);
+  ADD KEY `fk_programacion_placa1_idx` (`idplaca`),
+  ADD KEY `fk_programacion_dias1_idx` (`iddias`);
 
 --
 -- Indices de la tabla `rol`
 --
 ALTER TABLE `rol`
   ADD PRIMARY KEY (`idrol`);
+
+--
+-- Indices de la tabla `socio`
+--
+ALTER TABLE `socio`
+  ADD PRIMARY KEY (`idsocio`),
+  ADD KEY `fk_socio_placa1_idx` (`idplaca`),
+  ADD KEY `fk_socio_persona1_idx` (`idpersona`);
 
 --
 -- Indices de la tabla `tipo`
@@ -404,13 +456,31 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `comunicado`
 --
 ALTER TABLE `comunicado`
-  MODIFY `idcomunicado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `idcomunicado` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT de la tabla `dias`
+--
+ALTER TABLE `dias`
+  MODIFY `iddias` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de la tabla `diastt`
+--
+ALTER TABLE `diastt`
+  MODIFY `iddiastt` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `eventos`
 --
 ALTER TABLE `eventos`
-  MODIFY `ideventos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ideventos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `hora_salida`
+--
+ALTER TABLE `hora_salida`
+  MODIFY `idhora_salida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `institucion`
@@ -428,13 +498,13 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de la tabla `placa`
 --
 ALTER TABLE `placa`
-  MODIFY `idplaca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idplaca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=777778;
 
 --
 -- AUTO_INCREMENT de la tabla `privilegios`
@@ -446,13 +516,19 @@ ALTER TABLE `privilegios`
 -- AUTO_INCREMENT de la tabla `programacion`
 --
 ALTER TABLE `programacion`
-  MODIFY `idprogramacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idprogramacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
 --
 ALTER TABLE `rol`
   MODIFY `idrol` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `socio`
+--
+ALTER TABLE `socio`
+  MODIFY `idsocio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo`
@@ -464,7 +540,7 @@ ALTER TABLE `tipo`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Restricciones para tablas volcadas
@@ -477,6 +553,12 @@ ALTER TABLE `comunicado`
   ADD CONSTRAINT `fk_comunicado_tipo1` FOREIGN KEY (`idtipo`) REFERENCES `tipo` (`idtipo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Filtros para la tabla `hora_salida`
+--
+ALTER TABLE `hora_salida`
+  ADD CONSTRAINT `fk_hora_salida_diag1` FOREIGN KEY (`iddias`) REFERENCES `dias` (`iddias`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Filtros para la tabla `privilegios`
 --
 ALTER TABLE `privilegios`
@@ -487,8 +569,15 @@ ALTER TABLE `privilegios`
 -- Filtros para la tabla `programacion`
 --
 ALTER TABLE `programacion`
-  ADD CONSTRAINT `fk_programacion_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_programacion_dias1` FOREIGN KEY (`iddias`) REFERENCES `dias` (`iddias`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_programacion_placa1` FOREIGN KEY (`idplaca`) REFERENCES `placa` (`idplaca`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Filtros para la tabla `socio`
+--
+ALTER TABLE `socio`
+  ADD CONSTRAINT `fk_socio_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_socio_placa1` FOREIGN KEY (`idplaca`) REFERENCES `placa` (`idplaca`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `usuario`
@@ -496,6 +585,19 @@ ALTER TABLE `programacion`
 ALTER TABLE `usuario`
   ADD CONSTRAINT `fk_usuario_persona` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_usuario_rol1` FOREIGN KEY (`idrol`) REFERENCES `rol` (`idrol`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+DELIMITER $$
+--
+-- Eventos
+--
+CREATE DEFINER=`root`@`localhost` EVENT `e` ON SCHEDULE EVERY 24 HOUR STARTS '2022-10-24 23:32:56' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
+
+        UPDATE programacion set hora_salida=addtime(hora_salida, '0:30:0') WHERE hora_salida<>'15:00:00';
+        UPDATE programacion set hora_salida='04:30:00' WHERE hora_salida='15:00:00';
+        
+    END$$
+
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
