@@ -14,4 +14,15 @@
     </div>
 </div>
 <!-- Banner Section End -->
+<div class="events-home-wrapper">
+    <div class="overlay-section">
+        <div class="container section">
+            <div class="section-title pdb-30">
+                <h1>Programación dia <?php echo diaCatellano(date("d-m-Y")); ?></h1>
+                
+            </div>
+        
+        </div>
+    </div>
+</div>
 

@@ -11,6 +11,7 @@ class Controller_aviso extends CI_Controller{
 		$this->load->view('plantilla',$datos);
 	}
 	//fin socio
+	
 	//inicio comunicado
 	public function comunicado(){
 		$datos['contenido']="file_comunicado/adminComunicado_index";
@@ -163,6 +164,139 @@ class Controller_aviso extends CI_Controller{
 
 
 
+	}
+	public function programa_lunes(){
+		$this->load->database();
+        $count = $this->db->get('posts')->num_rows();
+
+        if(!empty($this->input->get("page"))){
+            $start = $this->input->get("page") * $this->perPage;
+            $query = $this->db->limit($start, $this->perPage)->get("posts");
+            $data['posts'] = $query->result();
+            $data['count']=$count;
+            $result = $this->load->view('ajax_post', $data);
+            echo json_encode($result);
+        }else{
+            $query = $this->db->limit($this->perPage,0)->get("posts");
+            $data['posts'] = $query->result();
+            $data['count']=$count;
+            $this->load->view('post', $data);
+        }
+		
+	}
+	public function programa_martes(){
+		$this->load->database();
+        $count = $this->db->get('posts')->num_rows();
+
+        if(!empty($this->input->get("page"))){
+            $start = $this->input->get("page") * $this->perPage;
+            $query = $this->db->limit($start, $this->perPage)->get("posts");
+            $data['posts'] = $query->result();
+            $data['count']=$count;
+            $result = $this->load->view('ajax_post', $data);
+            echo json_encode($result);
+        }else{
+            $query = $this->db->limit($this->perPage,0)->get("posts");
+            $data['posts'] = $query->result();
+            $data['count']=$count;
+            $this->load->view('post', $data);
+        }
+		
+	}
+	public function programa_miercoles(){
+		$this->load->database();
+        $count = $this->db->get('posts')->num_rows();
+
+        if(!empty($this->input->get("page"))){
+            $start = $this->input->get("page") * $this->perPage;
+            $query = $this->db->limit($start, $this->perPage)->get("posts");
+            $data['posts'] = $query->result();
+            $data['count']=$count;
+            $result = $this->load->view('ajax_post', $data);
+            echo json_encode($result);
+        }else{
+            $query = $this->db->limit($this->perPage,0)->get("posts");
+            $data['posts'] = $query->result();
+            $data['count']=$count;
+            $this->load->view('post', $data);
+        }
+		
+	}
+	public function programa_jueves(){
+		$this->load->database();
+        $count = $this->db->get('posts')->num_rows();
+
+        if(!empty($this->input->get("page"))){
+            $start = $this->input->get("page") * $this->perPage;
+            $query = $this->db->limit($start, $this->perPage)->get("posts");
+            $data['posts'] = $query->result();
+            $data['count']=$count;
+            $result = $this->load->view('ajax_post', $data);
+            echo json_encode($result);
+        }else{
+            $query = $this->db->limit($this->perPage,0)->get("posts");
+            $data['posts'] = $query->result();
+            $data['count']=$count;
+            $this->load->view('post', $data);
+        }
+		
+	}
+	public function programa_viernes(){
+		$this->load->database();
+        $count = $this->db->get('posts')->num_rows();
+
+        if(!empty($this->input->get("page"))){
+            $start = $this->input->get("page") * $this->perPage;
+            $query = $this->db->limit($start, $this->perPage)->get("posts");
+            $data['posts'] = $query->result();
+            $data['count']=$count;
+            $result = $this->load->view('ajax_post', $data);
+            echo json_encode($result);
+        }else{
+            $query = $this->db->limit($this->perPage,0)->get("posts");
+            $data['posts'] = $query->result();
+            $data['count']=$count;
+            $this->load->view('post', $data);
+        }
+		
+	}
+	public function programa_sabado(){
+		$this->load->database();
+        $count = $this->db->get('posts')->num_rows();
+
+        if(!empty($this->input->get("page"))){
+            $start = $this->input->get("page") * $this->perPage;
+            $query = $this->db->limit($start, $this->perPage)->get("posts");
+            $data['posts'] = $query->result();
+            $data['count']=$count;
+            $result = $this->load->view('ajax_post', $data);
+            echo json_encode($result);
+        }else{
+            $query = $this->db->limit($this->perPage,0)->get("posts");
+            $data['posts'] = $query->result();
+            $data['count']=$count;
+            $this->load->view('post', $data);
+        }
+		
+	}
+	public function programa_domingo(){
+		$this->load->database();
+        $count = $this->db->get('posts')->num_rows();
+
+        if(!empty($this->input->get("page"))){
+            $start = $this->input->get("page") * $this->perPage;
+            $query = $this->db->limit($start, $this->perPage)->get("posts");
+            $data['posts'] = $query->result();
+            $data['count']=$count;
+            $result = $this->load->view('ajax_post', $data);
+            echo json_encode($result);
+        }else{
+            $query = $this->db->limit($this->perPage,0)->get("posts");
+            $data['posts'] = $query->result();
+            $data['count']=$count;
+            $this->load->view('post', $data);
+        }
+		
 	}
 
 	//fin

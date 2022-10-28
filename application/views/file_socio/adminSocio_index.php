@@ -32,7 +32,23 @@
 							</tr>
 						</thead>
 						<tbody>
-							
+						<?php $con=1; foreach ($this->Model_aviso->listar_socios() as $objeto) { ?>
+							<tr>
+								<td><?php echo $con++; ?></td>
+								<td><img width="40" src="<?php echo base_url()?>assets/imagenes_socio/<?php echo $objeto->imagen; ?>" alt=""></td>
+								<td><?php echo $objeto->ci; ?></td>
+								<td><?php echo $objeto->nombre.' '.$objeto->paterno.' '.$objeto->materno; ?></td>
+								<td><?php echo $objeto->placa; ?></td>
+								<td><?php echo $objeto->ingreso; ?></td>
+								<td><button type="button" class="btn btn-success btn-raised">estado</button></td>
+								<td>
+									<a href="" class="btn btn-info btn-raised">EDITAR</a>
+
+									<a href="javascript:;" class="btn btn-danger btn-raised" >ELIMINAR</a>
+								</td>
+								
+							</tr>
+						<?php } ?>
 						</tbody>
 					</table>
 					

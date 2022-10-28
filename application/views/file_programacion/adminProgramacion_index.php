@@ -34,17 +34,33 @@
 									<?php 
 									switch ($item->dia){
 										case 'LUNES':
-												echo "<td>".$item->hora_salida." - ".$item->placa." - ".$item->nombre." - </td>";
+												echo "<td>".$item->ci." ".$item->nombre." ".$item->hora_salida." - ".$item->placa." - ".$item->nombre." - </td>";
 											break;
 											
 										case 'MARTES':
 											echo "<td> </td>";
-											echo "<td>".$item->hora_salida." - ".$item->placa." - ".$item->nombre." - </td>";
+											echo "<td>".$item->ci." ".$item->nombre." ".$item->hora_salida." - ".$item->placa." - ".$item->nombre." - </td>";
 												break;
 
 										case 'MIERCOLES':
-											echo "<td> </td>";
-											echo "<td>".$item->placa." - ".$item->nombre." - </td>";
+											echo "<td> </td><td> </td>";
+											echo "<td>".$item->ci." ".$item->nombre." ".$item->placa." - ".$item->nombre." - </td>";
+												break;
+										case 'JUEVES':
+											echo "<td> </td><td> </td><td> </td>";
+											echo "<td>".$item->ci." ".$item->nombre." ".$item->placa." - ".$item->nombre." - </td>";
+												break;
+										case 'VIERNES':
+											echo "<td> </td><td> </td><td> </td><td> </td>";
+											echo "<td>".$item->ci." ".$item->nombre." ".$item->placa." - ".$item->nombre." - </td>";
+												break;
+										case 'SABADO':
+											echo "<td> </td><td> </td><td> </td><td> </td><td> </td>";
+											echo "<td>".$item->ci." ".$item->nombre." ".$item->placa." - ".$item->nombre." - </td>";
+												break;
+										case 'DOMINGO':
+											echo "<td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>";
+											echo "<td>".$item->ci." ".$item->nombre." ".$item->placa." - ".$item->nombre." - </td>";
 												break;
 										
 										default:

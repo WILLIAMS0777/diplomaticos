@@ -15,15 +15,18 @@ class Model_aviso extends CI_Model{
 		
 	}
 
-	//inicio socio
+	//inicio socioÑ
 	public function listar_socios(){
 		return $this->db->query("SELECT
 		socio.ingreso,
+		socio.imagen,
+		persona.ci,
 		persona.nombre,
 		persona.paterno,
 		persona.materno,
 		persona.idpersona,
-		placa.idplaca
+		placa.idplaca,
+		placa.placa
 		FROM socio
 		INNER JOIN persona ON socio.idpersona = persona.idpersona
 		INNER JOIN placa ON socio.idplaca = placa.idplaca
@@ -77,17 +80,19 @@ class Model_aviso extends CI_Model{
 	public function listar_programacion(){
 		return $this->db->query("SELECT
 		placa.placa,
+		persona.ci,
 		persona.nombre,
 		persona.paterno,
 		persona.materno,
-		persona.imagen,
+		socio.imagen,
         hora_salida.hora_salida,
         dias.dia
 		FROM
 		programacion 
 		INNER JOIN placa ON programacion.idplaca = placa.idplaca
-		INNER JOIN persona ON programacion.idpersona = persona.idpersona
-		INNER JOIN dias ON programacion.idprogramacion = dias.idprogramacion
+		INNER JOIN socio ON socio.idplaca = placa.idplaca
+		INNER JOIN persona ON socio.idpersona = persona.idpersona
+		INNER JOIN dias ON programacion.iddias = dias.iddias
         INNER JOIN hora_salida ON dias.iddias = hora_salida.iddias
 		ORDER BY dias.dia asc, hora_salida.hora_salida asc
 		")->result();
