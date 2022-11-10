@@ -3,6 +3,7 @@ class Controller_usuario extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Model_usuario');
+		$this->menu=$this->backend_lib->listar_menus_sys();
 	}
 	public function index(){
 		if ($this->session->userdata('session')) {
@@ -21,6 +22,7 @@ class Controller_usuario extends CI_Controller{
 			$datos=array(
 				'session'	=>true,
 				'id'		=>$obj->idusuario,
+				'idrol'		=>$obj->idrol,
 				'nombres'	=>$obj->nombre.' '.$obj->paterno.' '.$obj->materno,
 				'roles'		=>$obj->roles
 			);
@@ -44,13 +46,68 @@ class Controller_usuario extends CI_Controller{
 		$this->load->view('plantilla',$datos);
 	}
 
-	//inicio
+	//inicio institucion
 	public function adminInstitucion(){
 		$datos['contenido']="file_institucion/admin_institucion";
+		$datos['obj']=$this->Model_usuario->admin_institucion();
 		$this->load->view('plantilla',$datos);
 	}
-	//fin
+	public function editarInstitucion($idinstitucion){
+		$datos['obj']=$this->Model_usuario->editarInstitucion($idinstitucion);
+		$datos['contenido']='file_institucion/form_editarInstitucion';
+		$this->load->view('plantilla',$datos);
+	}
+	/*public function guardarEditarUsuario(){
+		$idpersona=$this->input->post('idpersona');
+		$idusuario=$this->input->post('idusuario');
+		$imagen_a=$this->input->post('imagen_a');
+
+		$expedido=$this->input->post('expedido');
+		$nombre=mb_strtoupper($this->input->post('nombre'),'utf-8');
+		$paterno=mb_strtoupper($this->input->post('paterno'),'utf-8');
+		$materno=mb_strtoupper($this->input->post('materno'),'utf-8');
+		$celular=$this->input->post('celular');
+
+		$idrol=$this->input->post('idrol');
+
+		$imagen=$_FILES['imagen']['tmp_name'];
+		echo $imagen;
+		die;
+		if ($imagen) {
+			if ($imagen_a) {
+				unlink("./assets/imagenes/".$imagen_a);
+			}
+			$ext=explode('.', $_FILES['imagen']['name']);
+			$img=round(microtime(true)).'.'.end($ext);
+			move_uploaded_file($_FILES['imagen']['tmp_name'],"assets/imagenes/user_".$img);
+			$imagen="user_".$img;
+		}else{
+			$imagen=$imagen_a;
+		}
+		
+		$objeto=array(
+			'expedido'=>$expedido,
+			'nombre'=>$nombre,
+			'paterno'=>$paterno,
+			'materno'=>$materno,
+			'celular'=>$celular
+		);
+		$this->Model_usuario->editar_tabla_sys('persona',$objeto,'idpersona',$idpersona);
+		$objeto1=array(
+			'imagen'=>$imagen,
+			'idrol'=>$idrol
+		);
+		$this->Model_usuario->editar_tabla_sys('usuario',$objeto1,'idusuario',$idusuario);
+	}*/
+
+
+
+
+	
+	//fin institucion
 	public function adminUsuario(){
+		//print_r($this->menu);die();
+		$datos['menus']=$this->menu;
 		$datos['contenido']="file_usuario/adminUsuario_index";
 		$this->load->view('plantilla',$datos);
 	}
@@ -180,6 +237,8 @@ class Controller_usuario extends CI_Controller{
 		$idrol=$this->input->post('idrol');
 
 		$imagen=$_FILES['imagen']['tmp_name'];
+		echo $imagen;
+		die;
 		if ($imagen) {
 			if ($imagen_a) {
 				unlink("./assets/imagenes/".$imagen_a);
@@ -206,5 +265,41 @@ class Controller_usuario extends CI_Controller{
 		);
 		$this->Model_usuario->editar_tabla_sys('usuario',$objeto1,'idusuario',$idusuario);
 	}
+	//inicio menus
+	public function menus(){
+		$datos['contenido']="file_menus/adminMenus_index";
+		$this->load->view('plantilla',$datos);
+	}
+	public function cambiar_estado_menus(){
+		$idmenus=$this->input->post('idmenus');
+		$m_estado=$this->input->post('m_estado');
+		if ($m_estado=='1') {
+			$valor_estado='inactivo';
+		}else{
+			$valor_estado='activo';
+		}
+		$obj=array('m_estado'=>$valor_estado);
+		$this->Model_usuario->editar_tabla_sys('menus',$obj,'idmenus',$idmenus);
+	}
+	public function eliminar_menus(){
+		$idmenus=$this->input->post('idmenus');
+		$obj=array('m_estado'=>'eliminar');
+		$this->Model_usuario->editar_tabla_sys('menus',$obj,'idmenus',$idmenus);
+	}
+	public function nuevoMenu(){
+		$datos['contenido']="file_menus/form_nuevoMenu";
+		$this->load->view('plantilla',$datos);
+	}
+	public function guardarNuevoMenu(){
+		$menus=$this->input->post('menus');
+		$objeto=array(
+			'menus'=>$menus,
+			'm_estado'=>'activo'
+		);
+		$this->Model_usuario->insertar_tabla_sys('menus',$objeto);
+	}
+	//fin menus
+
+
 }
 ?>

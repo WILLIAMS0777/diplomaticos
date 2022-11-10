@@ -12,94 +12,85 @@
 			</div>
 			<div class="panel-body">
 				<div class="table-responsive">
-                    <div class="col-lg-8">
-                        <div class="from-group">
-                            <label>LOGO DE LA INSTITUCION</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" required placeholder="Ingresar nombre...">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="from-group">
-                            <label>NOMBRE DE LA INSTITUCION</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" required placeholder="Ingresar nombre de la institucion...">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="from-group">
-                            <label>OBJETIVO DE LA INSTITUCION</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" required placeholder="Ingresar nombre de la institucion...">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="from-group">
-                            <label>MISION DE LA INSTITUCION</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" required placeholder="Ingresar nombre de la institucion...">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="from-group">
-                            <label>VISION DE LA INSTITUCION</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" required placeholder="Ingresar nombre de la institucion...">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="from-group">
-                            <label>CORREO</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" required placeholder="Ingresar nombre de la institucion...">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="from-group">
-                            <label>CELULAR</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" required placeholder="Ingresar nombre de la institucion...">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="from-group">
-                            <label>FACEBOOK</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" required placeholder="Ingresar nombre de la institucion...">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="from-group">
-                            <label>UBICACION</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" required placeholder="Ingresar nombre de la institucion...">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="from-group">
-                            <label>GOOGLE MAPS</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" required placeholder="Ingresar nombre de la institucion...">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="from-group">
-                            <label>PRESIDENTE</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" required placeholder="Ingresar nombre de la institucion...">
-                        </div>
-                    </div>
-
-                    <div class="col-lg-8">
-                        <div class="from-group">
-                            <label>IMAGEN PRESIDENTE</label>
-                            <input type="text" name="nombre" id="nombre" class="form-control" required placeholder="Ingresar nombre de la institucion...">
-                        </div>
-                    </div>
-
                     
+                    <div class="col-md-8">
+                        <div class="form-group ">
+                            <h4><strong>LOGO DE LA INSTITUCION</strong></h4>
+                            <td><img src="<?php echo base_url()?>assets/imagenes_institucion/<?php echo $obj->in_logo; ?>" width="200" height="200" alt=""></td>
+                        </div>
+                    </div>
 
+                    <div class="col-md-12">
+                        <div class="form-group ">
+                        <h4><strong>NOMBRE DE LA INSTITUCION</strong></h4>
+                        <td><?php echo $obj->in_nombre; ?></td>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group ">
+                        <h4><strong>DESCRIPCION</strong></h4>
+                        <td><?php echo $obj->in_descripcion; ?></td>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group ">
+                        <h4><strong>MISION</strong></h4>
+                        <td><?php echo $obj->in_mision; ?></td>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group ">
+                        <h4><strong>VISION</strong></h4>
+                        <td><?php echo $obj->in_vision; ?></td>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group ">
+                        <h4><strong>OBJETIVO</strong></h4>
+                        <td><?php echo $obj->in_objetivo; ?></td>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group ">
+                        <h4><strong>CORREO</strong></h4>
+                        <td><?php echo $obj->in_correo; ?></td>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group ">
+                        <h4><strong>CELULAR</strong></h4>
+                        <td><?php echo $obj->in_celular; ?></td>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group ">
+                        <h4><strong>FACEBOOK</strong></h4>
+                        <td><?php echo $obj->in_facebook; ?></td>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group ">
+                        <h4><strong>UBICACION GOOGLE MAPS</strong></h4>
+                        <td><?php echo $obj->in_google_maps; ?></td>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group ">
+                            <h4><strong>IMAGEN DEL PRESIDENTE DE LA INSTITUCION</strong></h4>
+                            <td><img src="<?php echo base_url()?>assets/imagenes_institucion/<?php echo $obj->in_imagen_strio_general; ?>" width="200" height="200" alt=""></td>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group ">
+                        <h4><strong>NOMBRE DEL PRESIDENTE</strong></h4>
+                        <td><?php echo $obj->in_nombre_strio_general; ?></td>
+                        </div>
+                    </div>
+                    
+                    <a href="<?php echo base_url() ?>editarInstitucion/<?php echo $obj->idinstitucion; ?>" class="btn btn-info btn-raised">ACTUALIZAR LOS DATOS DE LA INSTITUCION</a>
+                    
 				</div>
-                <button type="submit" id="boton" class="btn btn-primary btn-raised">GUARDAR DATOS</button>
 			</div>
 		</div>
 	</div>

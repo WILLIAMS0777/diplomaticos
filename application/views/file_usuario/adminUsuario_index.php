@@ -1,7 +1,7 @@
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
   
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.js"></script>
-
+-->
 <div class="container-fluid">
 	<div class="page-header">
 	  <h1 class="text-titles">ADMINISTRACION <small>.</small></h1>
@@ -10,8 +10,8 @@
 <div class="container-fluid">
 	<h3 align="center">ADMINISTRACION DE USUARIOS</h3>
 	<a href="<?php echo base_url(); ?>nuevoUsuario" class="btn btn-primary"><i class="zmdi zmdi-plus"></i> &nbsp; NUEVO USUARIO</a>
-	<a href="" target="_blank" class="btn btn-warning"><i></i> &nbsp; REPORTES PDF</a>
-	<a href="" target="_blank" class="btn btn-success"><i></i> &nbsp; REPORTES EXCEL</a>
+	<a href="<?php echo base_url(); ?>listarUsuarioPdf" target="_blank" class="btn btn-warning"><i></i> &nbsp; REPORTES PDF DE LOS USARIOS</a>
+	
 
 	<!-- <a href="" target="_blank" class="btn btn-warning btn-raised">REPORTES PDF</a> -->
 

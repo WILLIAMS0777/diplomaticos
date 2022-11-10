@@ -12,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- favicon -->
         <link rel="apple-touch-icon" href="apple-touch-icon.html">
-        <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>assets/vista/template/assets/images/diplo1.jpg">
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url();?>assets/vista/template/assets/images/diplomaticos.png">
         <!-- Bootstrap v4.4.1 css -->
         <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/vista/template/assets/css/bootstrap.min.css">
         <!-- font-awesome css -->
@@ -64,14 +64,19 @@
             <header id="rs-header" class="rs-header">
                 <!-- Menu Start -->
                 <div class="menu-area menu-sticky">
-                    <div class="logo-part">
+
+
+                    <!--<div class="logo-part">
                         <a class="light-logo" href="index.html">
-                            <img src="<?php echo base_url();?>assets/vista/template/assets/images/diplo1.jpg" alt="">
+                            <img src="<?php echo base_url();?>assets/vista/template/assets/images/l.png" width="100" height="500" alt="">
+                            
                         </a>
                         <a class="small-logo" href="index.html">
-                            <img src="<?php echo base_url();?>assets/vista/template/assets/images/diplo1.jpg" alt="">
+                            <img src="<?php echo base_url();?>assets/vista/template/assets/images/l.png" width="100" height="100" alt="">
                         </a>
-                    </div>
+                    </div>-->
+
+                    <a class="light-logo"><img src="<?php echo base_url();?>assets/vista/template/assets/images/l.png" width="100" height="100" alt=""></a>
                     <div class="container">                                
                         <div class="rs-menu-area">
                             <div class="main-menu">
@@ -129,7 +134,7 @@
                     <div class="row y-middle">
                         <div class="col-lg-4 md-mb-20">
                             <div class="footer-logo md-text-center">
-                                <a href="index.html"><img src="<?php echo base_url();?>assets/vista/template/assets/images/diplo1.jpg" alt=""></a>
+                                <a href="index.html"><img src="<?php echo base_url();?>assets/vista/template/assets/images/diplomaticos.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-lg-4 md-mb-20">

@@ -60,12 +60,14 @@ $route['salir'] = 'Controller_usuario/salir';
 //inicio
 $route['adminInicio'] = 'Controller_usuario/adminInicio';
 //fin
+$route['hola'] = 'Controller_prueba/hola';
 
 //inicio
 $route['institucion'] = 'Controller_usuario/adminInstitucion';
+$route['editarInstitucion/(:any)'] = 'Controller_usuario/editarInstitucion/$1';
 //fin
 
-//inicio
+//inicio usuario
 $route['adminUsuario'] = 'Controller_usuario/adminUsuario';
 $route['nuevoUsuario'] = 'Controller_usuario/nuevoUsuario';
 $route['verificar_usuarios'] = 'Controller_usuario/verificar_usuarios';
@@ -76,12 +78,27 @@ $route['eliminar_usuario'] = 'Controller_usuario/eliminar_usuario';
 $route['editarUsuario/(:any)'] = 'Controller_usuario/editarUsuario/$1';
 $route['guardarEditarUsuario'] = 'Controller_usuario/guardarEditarUsuario';
 
+//fin usuario
 
-//fin
-
-//inicio
+//inicio privilegios
 $route['privilegios'] = 'Controller_usuario/privilegios';
-//fin
+//fin privilegios
+
+
+//inicio menus
+$route['menus'] = 'Controller_usuario/menus';
+$route['nuevoMenu'] = 'Controller_usuario/nuevoMenu';
+$route['guardarNuevoMenu'] = 'Controller_usuario/guardarNuevoMenu';
+$route['cambiar_estado_menus'] = 'Controller_usuario/cambiar_estado_menus';
+$route['eliminar_menus'] = 'Controller_usuario/eliminar_menus';
+//fin menus
+
+
+//inicio reporte usuario
+$route['listarUsuarioPdf'] = 'Controller_reportes_pdf/listarUsuarioPdf';
+//fin reporte usuario
+
+
 
 //inicio
 $route['roles'] = 'Controller_usuario/roles';
@@ -89,12 +106,13 @@ $route['roles'] = 'Controller_usuario/roles';
 
 //inicio socio
 $route['socio'] = 'Controller_aviso/socio';
-/*$route['nuevoComunicado'] = 'Controller_aviso/nuevoComunicado';
-$route['guardarNuevoComunicado'] = 'Controller_aviso/guardarNuevoComunicado';
-$route['cambiar_estado_comunicado'] = 'Controller_aviso/cambiar_estado_comunicado';
-$route['eliminar_comunicado'] = 'Controller_aviso/eliminar_comunicado';
+$route['nuevoSocio'] = 'Controller_aviso/nuevoSocio';
+$route['guardarNuevoSocio'] = 'Controller_aviso/guardarNuevoSocio';
+$route['cambiar_estado_socio'] = 'Controller_aviso/cambiar_estado_socio';
+$route['eliminar_socio'] = 'Controller_aviso/eliminar_socio';
+
 $route['editarComunicado/(:any)'] = 'Controller_aviso/editarComunicado/$1';
-$route['guardarEditarComunicado'] = 'Controller_aviso/guardarEditarComunicado';*/
+$route['guardarEditarComunicado'] = 'Controller_aviso/guardarEditarComunicado';
 //fin socio
 
 //inicio comunicado
@@ -113,8 +131,8 @@ $route['nuevoEvento'] = 'Controller_aviso/nuevoEvento';
 $route['guardarNuevoEvento'] = 'Controller_aviso/guardarNuevoEvento';
 $route['cambiar_estado_evento'] = 'Controller_aviso/cambiar_estado_evento';
 $route['eliminar_evento'] = 'Controller_aviso/eliminar_evento';
-$route['editarComunicado/(:any)'] = 'Controller_aviso/editarComunicado/$1';
-$route['guardarEditarComunicado'] = 'Controller_aviso/guardarEditarComunicado';
+$route['editarEvento/(:any)'] = 'Controller_aviso/editarEvento/$1';
+$route['guardarEditarEvento'] = 'Controller_aviso/guardarEditarEvento';
 //fin evento
 
 //inicio
@@ -129,5 +147,6 @@ $route['home'] = 'Controller_pagina/home';
 $route['portada'] = 'Controller_pagina/portada';
 $route['quienes_somos'] = 'Controller_pagina/quienes_somos';
 $route['comunicados'] = 'Controller_pagina/comunicados';
+
 $route['eventos'] = 'Controller_pagina/eventos';
 //fin frontend

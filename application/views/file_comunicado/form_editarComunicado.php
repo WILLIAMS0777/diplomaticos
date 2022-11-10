@@ -51,7 +51,7 @@
 		    			</div>
 		    		</div>
 		    		<button type="submit" id="boton" class="btn btn-primary btn-raised">GUARDAR DATOS</button>
-		    		<a href="<?php echo base_url(); ?>adminUsuario" class="btn btn-danger btn-raised">SALIR</a>
+		    		<a href="<?php echo base_url(); ?>adminComunicado" class="btn btn-danger btn-raised">SALIR</a>
 		    	</fieldset>
 		    	<br>
 		    </form>

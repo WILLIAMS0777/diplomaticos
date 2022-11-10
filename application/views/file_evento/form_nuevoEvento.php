@@ -39,7 +39,7 @@
 		    			</div>
 		    		</div>
 		    		<button type="submit" id="boton" class="btn btn-primary btn-raised">GUARDAR DATOS</button>
-		    		<a href="comunicado" class="btn btn-danger btn-raised">SALIR</a>
+		    		<a href="evento" class="btn btn-danger btn-raised">SALIR</a>
 		    	</fieldset>
 		    	<br>
 		    </form>
@@ -64,3 +64,5 @@
 		});
 	});
 </script>
+
+

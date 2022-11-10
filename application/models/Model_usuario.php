@@ -17,13 +17,15 @@ class Model_usuario extends CI_Model
 		$this->db->where($idtabla,$id);
 		$this->db->update($tabla,$obj);
 	}
+	
 	public function login($user,$pass){
 		return $this->db->query("SELECT
 			usuario.idusuario,
 			persona.nombre,
 			persona.paterno,
 			persona.materno,
-			rol.roles
+			rol.roles,
+			rol.idrol
 			FROM usuario
 			INNER JOIN persona USING(idpersona) 
 			INNER JOIN rol USING(idrol)
@@ -66,6 +68,21 @@ class Model_usuario extends CI_Model
 		return $this->db->query("SELECT * FROM usuario
 		INNER JOIN persona ON usuario.idpersona = persona.idpersona
 		WHERE usuario.idusuario='$idusuario' ")->row();
+	}
+
+
+	public function admin_institucion(){
+		return $this->db->query("SELECT * FROM institucion ")->row();
+	}
+
+	public function editarInstitucion($idinstitucion){
+		return $this->db->query("SELECT * FROM institucion
+		WHERE institucion.idinstitucion='$idinstitucion' ")->row();
+	}
+	public function listar_menus(){
+		return $this->db->query("SELECT * FROM `menus`
+		WHERE menus.m_estado!='eliminar'
+		")->result();
 	}
 
 }

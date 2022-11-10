@@ -1,75 +1,78 @@
 <div class="container-fluid">
 	<div class="page-header">
-	  <h1 class="text-titles"> PROGRAMACION <small>.</small></h1>
+		<h1 class="text-titles"> PROGRAMACION <small>.</small></h1>
 	</div>
 </div>
 <div class="container-fluid">
-	<h3 align="center">ADMINISTRACION DE COMUNICADOS</h3>
-	<a href="<?php echo base_url(); ?>nuevoCoumnicado" class="btn btn-primary"><i class="zmdi zmdi-plus"></i> &nbsp; NUEVAE PROGRAMACION</a>
+	<h3 align="center">ADMINISTRACION DE PROGRAMACIÓN</h3><br>
+
 	<div class="container-fluid">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h3 class="panel-title"><i class="zmdi zmdi-format-list-bulleted"></i> &nbsp; PROGRAMACION</h3>
+				<h3 class="panel-title"><i class="zmdi zmdi-format-list-bulleted"></i> &nbsp; PROGRAMACIÓN</h3>
 			</div>
 			<div class="panel-body">
 				<div class="table-responsive">
 					<table class="table table-hover text-center">
 						<thead>
-						<tr>
-							<th>#</th>
-							<th class="zui-sticky-col">HORARIO</th>
-                            <th>LUNES</th>
-                            <th>MARTES</th>
-                            <th>MIERCOLES</th>
-                            <th>JUEVES</th>
-                            <th>VIERNES</th>
-                        	<th>SABADO</th>
-                            <th>DOMINGO</th>
-                        </tr>
+							<tr>
+								<th>#</th>
+								<th class="zui-sticky-col">HORARIO</th>
+								<th>LUNES</th>
+								<th>MARTES</th>
+								<th>MIERCOLES</th>
+								<th>JUEVES</th>
+								<th>VIERNES</th>
+								<th>SABADO</th>
+								<th>DOMINGO</th>
+							</tr>
 						</thead>
 						<tbody>
-							<?php $con=1; foreach ($this->Model_aviso->listar_programacion()  as $item):?>
-									<tr>
-									<td><?php echo $con++; ?></td>
-									<?php 
-									switch ($item->dia){
-										case 'LUNES':
-												echo "<td>".$item->ci." ".$item->nombre." ".$item->hora_salida." - ".$item->placa." - ".$item->nombre." - </td>";
-											break;
-											
-										case 'MARTES':
-											echo "<td> </td>";
-											echo "<td>".$item->ci." ".$item->nombre." ".$item->hora_salida." - ".$item->placa." - ".$item->nombre." - </td>";
-												break;
+							<?php $con = 1;
+                            foreach ($this->Model_aviso->listar_programacion() as $item): ?>
+							<tr>
+								<td>
+									<?php echo $con++; ?>
+								</td>
+								<?php
+	                            switch ($item->dia) {
+		                            case 'LUNES':
+			                            echo "<td>" . $item->ci . " " . $item->nombre . " " . $item->hora_salida . " - " . $item->placa . " - " . $item->nombre . " - </td>";
+			                            break;
 
-										case 'MIERCOLES':
-											echo "<td> </td><td> </td>";
-											echo "<td>".$item->ci." ".$item->nombre." ".$item->placa." - ".$item->nombre." - </td>";
-												break;
-										case 'JUEVES':
-											echo "<td> </td><td> </td><td> </td>";
-											echo "<td>".$item->ci." ".$item->nombre." ".$item->placa." - ".$item->nombre." - </td>";
-												break;
-										case 'VIERNES':
-											echo "<td> </td><td> </td><td> </td><td> </td>";
-											echo "<td>".$item->ci." ".$item->nombre." ".$item->placa." - ".$item->nombre." - </td>";
-												break;
-										case 'SABADO':
-											echo "<td> </td><td> </td><td> </td><td> </td><td> </td>";
-											echo "<td>".$item->ci." ".$item->nombre." ".$item->placa." - ".$item->nombre." - </td>";
-												break;
-										case 'DOMINGO':
-											echo "<td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>";
-											echo "<td>".$item->ci." ".$item->nombre." ".$item->placa." - ".$item->nombre." - </td>";
-												break;
-										
-										default:
-											# code...
-											break;
-									}
-									?>
+		                            case 'MARTES':
+			                            echo "<td> </td>";
+			                            echo "<td>" . $item->ci . " " . $item->nombre . " " . $item->hora_salida . " - " . $item->placa . " - " . $item->nombre . " - </td>";
+			                            break;
+
+		                            case 'MIERCOLES':
+			                            echo "<td> </td><td> </td>";
+			                            echo "<td>" . $item->ci . " " . $item->nombre . " " . $item->placa . " - " . $item->nombre . " - </td>";
+			                            break;
+		                            case 'JUEVES':
+			                            echo "<td> </td><td> </td><td> </td>";
+			                            echo "<td>" . $item->ci . " " . $item->nombre . " " . $item->placa . " - " . $item->nombre . " - </td>";
+			                            break;
+		                            case 'VIERNES':
+			                            echo "<td> </td><td> </td><td> </td><td> </td>";
+			                            echo "<td>" . $item->ci . " " . $item->nombre . " " . $item->placa . " - " . $item->nombre . " - </td>";
+			                            break;
+		                            case 'SABADO':
+			                            echo "<td> </td><td> </td><td> </td><td> </td><td> </td>";
+			                            echo "<td>" . $item->ci . " " . $item->nombre . " " . $item->placa . " - " . $item->nombre . " - </td>";
+			                            break;
+		                            case 'DOMINGO':
+			                            echo "<td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>";
+			                            echo "<td>" . $item->ci . " " . $item->nombre . " " . $item->placa . " - " . $item->nombre . " - </td>";
+			                            break;
+
+		                            default:
+			                            # code...
+                            			break;
+	                            }
+                                    ?>
 							</tr>
-								
+
 
 							<?php endforeach; ?>
 
@@ -80,4 +83,9 @@
 			</div>
 		</div>
 	</div>
+
+	<script src="<?php base_url();?>assets/js/admin/admin_programacion.js"></script>
+
+
 </div>
+

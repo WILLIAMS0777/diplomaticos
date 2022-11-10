@@ -1,7 +1,7 @@
 <!-- Breadcrumbs Start -->
 <div class="rs-breadcrumbs breadcrumbs-overlay">
     <div class="breadcrumbs-img">
-        <img src="<?php echo base_url();?>assets/vista/template/assets/images/breadcrumbs/2.jpg" alt="Breadcrumbs Image">
+        <img src="<?php echo base_url();?>assets/vista/template/assets/images/breadcrumbs/fondo2.png" alt="Breadcrumbs Image">
     </div>
     <div class="breadcrumbs-text white-color">
         <h1 class="page-title">QUINES SOMOS</h1>

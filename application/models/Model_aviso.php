@@ -15,10 +15,11 @@ class Model_aviso extends CI_Model{
 		
 	}
 
-	//inicio socioÑ
+	//inicio socio
 	public function listar_socios(){
 		return $this->db->query("SELECT
-		socio.ingreso,
+		socio.idsocio,
+		socio.estado,
 		socio.imagen,
 		persona.ci,
 		persona.nombre,
@@ -30,6 +31,7 @@ class Model_aviso extends CI_Model{
 		FROM socio
 		INNER JOIN persona ON socio.idpersona = persona.idpersona
 		INNER JOIN placa ON socio.idplaca = placa.idplaca
+		WHERE socio.estado!='eliminar'
 		")->result();
 	}
 	/*public function editarComunicado($idcomunicado){
@@ -49,7 +51,10 @@ class Model_aviso extends CI_Model{
 		comunicado.fecha_registro,
 		tipo.tipos
 		FROM
-		comunicado INNER JOIN tipo ON comunicado.idtipo = tipo.idtipo
+		comunicado
+		
+		INNER JOIN tipo ON comunicado.idtipo = tipo.idtipo
+		WHERE comunicado.estado!='eliminar' 
 		")->result();
 	}
 	public function editarComunicado($idcomunicado){
@@ -68,16 +73,19 @@ class Model_aviso extends CI_Model{
 		eventos.fecha_evento
 		FROM
 		eventos
+		WHERE eventos.estado!='eliminar'
 		")->result();
 	}
-	public function editarEvento($idevento){
-		return $this->db->query("SELECT * FROM comunicado
-		WHERE comunicado.idcomunicado='$idcomunicado' ")->row();
+	public function editarEvento($ideventos){
+		return $this->db->query("SELECT * FROM eventos
+		WHERE eventos.ideventos='$ideventos' ")->row();
 	}
 	//fin evento
 
 	//programacion inicio
-	public function listar_programacion(){
+	public function listar_programacion($pagina, $dia='LUNES'){
+		$offset = 10*$pagina; 
+        $limit = 10; 
 		return $this->db->query("SELECT
 		placa.placa,
 		persona.ci,
@@ -85,7 +93,6 @@ class Model_aviso extends CI_Model{
 		persona.paterno,
 		persona.materno,
 		socio.imagen,
-        hora_salida.hora_salida,
         dias.dia
 		FROM
 		programacion 
@@ -94,9 +101,23 @@ class Model_aviso extends CI_Model{
 		INNER JOIN persona ON socio.idpersona = persona.idpersona
 		INNER JOIN dias ON programacion.iddias = dias.iddias
         INNER JOIN hora_salida ON dias.iddias = hora_salida.iddias
+		WHERE $dia=dias.dia
+		LIMIT $offset ,$limit
 		ORDER BY dias.dia asc, hora_salida.hora_salida asc
 		")->result();
 	}
+	// public function getCountry($page){
+    //     $this->load->database();
+    //     $offset = 10*$page; 
+    //     $limit = 10; 
+    //     $sql = "select * from countries limit $offset ,$limit"; 
+
+    //     // echo $sql."<br />";
+        
+    //     return $this->db->query($sql)->result();
+    // }
+
+	
 
 	public function obtener_horas(){
 		return $this->db->query("SELECT

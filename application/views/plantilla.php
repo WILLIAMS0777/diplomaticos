@@ -46,20 +46,27 @@
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
 				<li>
 					<a href="<?php echo base_url(); ?>adminInicio">
-						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> Inicio
+						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> INICIO
+					</a>
+				</li>
+				<li>
+					<a href="<?php echo base_url(); ?>hola">
+						<i class="zmdi zmdi-view-dashboard zmdi-hc-fw"></i> hola
 					</a>
 				</li>
 				<li>
 					<a href="<?php echo base_url(); ?>institucion">
-						<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Istitucion
+						<i class="zmdi zmdi-male-female zmdi-hc-fw"></i> INSTITUCIÓN
 					</a>
 				</li>
-				<li>
 
+
+
+				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> Administracion <i class="zmdi zmdi-caret-down pull-right"></i>
+						<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> ADMINISTRACIÓN <i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
-					<ul class="list-unstyled full-box">
+						<!-- <ul class="list-unstyled full-box"> -->
 						<li>
 							<a href="<?php echo base_url(); ?>adminUsuario"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Admin Usuarios</a>
 						</li>
@@ -67,17 +74,17 @@
 							<a href="<?php echo base_url(); ?>privilegios"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Privilegios</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url(); ?>roles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Roles</a>
+							<a href="<?php echo base_url(); ?>menus"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Menus</a>
 						</li>
-						
-					</ul>
-					
+					<!--</ul>-->
 				</li>
+
+
 				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="zmdi zmdi-case zmdi-hc-fw"></i> Informacion <i class="zmdi zmdi-caret-down pull-right"></i>
+						<i class="zmdi zmdi-case zmdi-hc-fw"></i> INFORMACIÓN <i class="zmdi zmdi-caret-down pull-right"></i>
 					</a>
-					<ul class="list-unstyled full-box">
+					<!--<ul class="list-unstyled full-box">-->
 						<li>
 							<a href="<?php echo base_url(); ?>socio"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Socios</a>
 						</li>
@@ -90,30 +97,12 @@
 						<li>
 							<a href="<?php echo base_url(); ?>evento"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Eventos</a>
 						</li>
-					</ul>
-				</li>
-				<li>
-					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="zmdi zmdi-case zmdi-hc-fw"></i> Reportes <i class="zmdi zmdi-caret-down pull-right"></i>
-					</a>
-					<ul class="list-unstyled full-box">
 						<li>
-							<a href="<?php echo base_url(); ?>comunicado"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Reporte de usuarios</a>
+							<a href="<?php echo base_url(); ?>ingreso"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Ingresos</a>
 						</li>
-
-					</ul>
+					<!--<ul</ul>-->
 				</li>
-				<li>
-					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="zmdi zmdi-case zmdi-hc-fw"></i> Graficos <i class="zmdi zmdi-caret-down pull-right"></i>
-					</a>
-					<ul class="list-unstyled full-box">
-						<li>
-							<a href="<?php echo base_url(); ?>comunicado"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Grafico de  usuarios</a>
-						</li>
-
-					</ul>
-				</li>
+				
 			</ul>
 		</div>
 	</section>
