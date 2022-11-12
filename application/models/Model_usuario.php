@@ -79,11 +79,29 @@ class Model_usuario extends CI_Model
 		return $this->db->query("SELECT * FROM institucion
 		WHERE institucion.idinstitucion='$idinstitucion' ")->row();
 	}
+	// inicio menus
 	public function listar_menus(){
 		return $this->db->query("SELECT * FROM `menus`
 		WHERE menus.m_estado!='eliminar'
 		")->result();
 	}
+	//fin menus
+	//inicio privilegios
+	public function listar_privilegios(){
+		return $this->db->query("SELECT
+		
+		privilegios.p_estado,
+		rol.roles,
+		privilegios.idprivilegios,
+        menus.menus
+		FROM
+		privilegios
+		INNER JOIN menus ON privilegios.idmenus = menus.idmenus
+		INNER JOIN rol ON privilegios.idrol = rol.idrol
+		WHERE privilegios.p_estado!='eliminar'
+		")->result();
+	}
+	//fin privilegios
 
 }
 

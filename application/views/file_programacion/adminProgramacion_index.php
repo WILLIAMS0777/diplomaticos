@@ -27,65 +27,47 @@
 								<th>DOMINGO</th>
 							</tr>
 						</thead>
+
 						<tbody>
-							<?php $con = 1;
-                            foreach ($this->Model_aviso->listar_programacion() as $item): ?>
 							<tr>
 								<td>
-									<?php echo $con++; ?>
+									<ul id="ajax_ul_lunes" data-val1="0">
+									</ul>
 								</td>
-								<?php
-	                            switch ($item->dia) {
-		                            case 'LUNES':
-			                            echo "<td>" . $item->ci . " " . $item->nombre . " " . $item->hora_salida . " - " . $item->placa . " - " . $item->nombre . " - </td>";
-			                            break;
-
-		                            case 'MARTES':
-			                            echo "<td> </td>";
-			                            echo "<td>" . $item->ci . " " . $item->nombre . " " . $item->hora_salida . " - " . $item->placa . " - " . $item->nombre . " - </td>";
-			                            break;
-
-		                            case 'MIERCOLES':
-			                            echo "<td> </td><td> </td>";
-			                            echo "<td>" . $item->ci . " " . $item->nombre . " " . $item->placa . " - " . $item->nombre . " - </td>";
-			                            break;
-		                            case 'JUEVES':
-			                            echo "<td> </td><td> </td><td> </td>";
-			                            echo "<td>" . $item->ci . " " . $item->nombre . " " . $item->placa . " - " . $item->nombre . " - </td>";
-			                            break;
-		                            case 'VIERNES':
-			                            echo "<td> </td><td> </td><td> </td><td> </td>";
-			                            echo "<td>" . $item->ci . " " . $item->nombre . " " . $item->placa . " - " . $item->nombre . " - </td>";
-			                            break;
-		                            case 'SABADO':
-			                            echo "<td> </td><td> </td><td> </td><td> </td><td> </td>";
-			                            echo "<td>" . $item->ci . " " . $item->nombre . " " . $item->placa . " - " . $item->nombre . " - </td>";
-			                            break;
-		                            case 'DOMINGO':
-			                            echo "<td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>";
-			                            echo "<td>" . $item->ci . " " . $item->nombre . " " . $item->placa . " - " . $item->nombre . " - </td>";
-			                            break;
-
-		                            default:
-			                            # code...
-                            			break;
-	                            }
-                                    ?>
+								<div class="container" style="text-align: center"><button class="btn" id="load_more_lunes"
+										data-val="0">Mostrar mas..<img style="display: none" id="loader" src="<?php echo base_url() ;?>assets/imagenes_html/loader.gif">
+									</button></div>
+								<td>
+									<ul id="ajax_ul_martes" data-val2="0">
+									</ul>
+								</td>
+								<td>
+									<ul id="ajax_ul_miercoles" data-val3="0">
+									</ul>
+								</td>
+								<td>
+									<ul id="ajax_ul_jueves" data-val4="0">
+									</ul>
+								</td>
+								<td>
+									<ul id="ajax_ul_viernes" data-val5="0">
+									</ul>
+								</td>
+								<td>
+									<ul id="ajax_ul_sabado" data-val6="0">
+									</ul>
+								</td>
+								<td>
+									<ul id="ajax_ul_domingo" data-val7="0">
+									</ul>
+								</td>
 							</tr>
-
-
-							<?php endforeach; ?>
-
-
 						</tbody>
+
 					</table>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<script src="<?php base_url();?>assets/js/admin/admin_programacion.js"></script>
-
-
 </div>
 

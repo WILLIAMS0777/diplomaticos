@@ -136,7 +136,7 @@ $route['guardarEditarEvento'] = 'Controller_aviso/guardarEditarEvento';
 //fin evento
 
 //inicio
-$route['programacion'] = 'Controller_aviso/programacion';
+$route['programacion'] = 'Controller_aviso/programacion_vista';
 //fin
 
 //inicio

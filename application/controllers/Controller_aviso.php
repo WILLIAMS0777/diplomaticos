@@ -267,6 +267,7 @@ class Controller_aviso extends CI_Controller
 		// $datos['horarios'] = array('04:30','05:00', '05:30','06:00','06:30','07:00','07:30','08:00','08:30')
 		$this->load->view('plantilla', $datos);
 	}
+
 	public function programacion()
 	{
 		$page = $_GET['page'];

@@ -299,6 +299,12 @@ class Controller_usuario extends CI_Controller{
 		$this->Model_usuario->insertar_tabla_sys('menus',$objeto);
 	}
 	//fin menus
+	// inicio privilegios
+	public function privilegios(){
+		$datos['contenido']="file_privilegios/adminprivilegios_index";
+		$this->load->view('plantilla',$datos);
+	}
+	// fin privelegios
 
 
 }

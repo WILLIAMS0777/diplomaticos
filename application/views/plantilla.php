@@ -130,6 +130,10 @@
 	<script src="<?php echo base_url(); ?>assets/js/ripples.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/main.js"></script>
+	<script src="<?php echo base_url();?>assets/js/admin/admin_programacion.js"></script>
+
+
+
 	<script>
 		$.material.init();
 	</script>
