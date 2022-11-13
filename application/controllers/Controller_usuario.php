@@ -57,48 +57,66 @@ class Controller_usuario extends CI_Controller{
 		$datos['contenido']='file_institucion/form_editarInstitucion';
 		$this->load->view('plantilla',$datos);
 	}
-	/*public function guardarEditarUsuario(){
-		$idpersona=$this->input->post('idpersona');
-		$idusuario=$this->input->post('idusuario');
-		$imagen_a=$this->input->post('imagen_a');
+	public function guardarEditarInstitucion(){
+		$idinstitucion=$this->input->post('idinstitucion');
+		$in_logo_a=$this->input->post('in_logo_a');
+		$in_imagen_strio_general_a=$this->input->post('in_imagen_strio_general_a');
+		$in_descripcion=$this->input->post('in_descripcion');
+		$in_mision=$this->input->post('in_mision');
+		$in_vision=$this->input->post('in_vision');
+		$in_objetivo=$this->input->post('in_objetivo');
+		$in_correo=$this->input->post('in_correo');
+		$in_celular=$this->input->post('in_celular');
+		$in_facebook=$this->input->post('in_facebook');
+		$in_google_maps=$this->input->post('in_google_maps');
+		$in_nombre_strio_general=$this->input->post('in_nombre_strio_general');
 
-		$expedido=$this->input->post('expedido');
-		$nombre=mb_strtoupper($this->input->post('nombre'),'utf-8');
-		$paterno=mb_strtoupper($this->input->post('paterno'),'utf-8');
-		$materno=mb_strtoupper($this->input->post('materno'),'utf-8');
-		$celular=$this->input->post('celular');
-
-		$idrol=$this->input->post('idrol');
-
-		$imagen=$_FILES['imagen']['tmp_name'];
-		echo $imagen;
+		$in_logo=$_FILES['in_logo']['tmp_name'];
+		echo $in_logo;
 		die;
-		if ($imagen) {
-			if ($imagen_a) {
-				unlink("./assets/imagenes/".$imagen_a);
+		if ($in_logo) {
+			if ($in_logo_a) {
+				unlink("./assets/imagenes_institucion/".$in_logo_a);
 			}
-			$ext=explode('.', $_FILES['imagen']['name']);
-			$img=round(microtime(true)).'.'.end($ext);
-			move_uploaded_file($_FILES['imagen']['tmp_name'],"assets/imagenes/user_".$img);
-			$imagen="user_".$img;
+			$ext=explode('.', $_FILES['in_logo']['name']);
+			$log=round(microtime(true)).'.'.end($ext);
+			move_uploaded_file($_FILES['in_logo']['tmp_name'],"assets/imagenes/log_".$log);
+			$in_logo="log_".$log;
 		}else{
-			$imagen=$imagen_a;
+			$in_logo=$in_logo_a;
 		}
-		
+//
+		$in_imagen_strio_general=$_FILES['in_imagen_strio_general']['tmp_name'];
+		echo $in_imagen_strio_general;
+		die;
+		if ($in_imagen_strio_general) {
+			if ($in_imagen_strio_general_a) {
+				unlink("./assets/imagenes_institucion/".$in_imagen_strio_general_a);
+			}
+			$ext=explode('.', $_FILES['in_imagen_strio_general']['name']);
+			$log=round(microtime(true)).'.'.end($ext);
+			move_uploaded_file($_FILES['in_imagen_strio_general']['tmp_name'],"assets/imagenes/gen_".$gen);
+			$in_imagen_strio_general="gen_".$gen;
+		}else{
+			$in_imagen_strio_general=$in_imagen_strio_general_a;
+		}
+
 		$objeto=array(
-			'expedido'=>$expedido,
-			'nombre'=>$nombre,
-			'paterno'=>$paterno,
-			'materno'=>$materno,
-			'celular'=>$celular
+			'in_logo'=>$in_logo,
+			'in_imagen_strio_general'=>$in_imagen_strio_general,
+			'in_descripcion'=>$in_descripcion,
+			'in_mision'=>$in_mision,
+			'in_vision'=>$in_vision,
+			'in_objetivo'=>$in_objetivo,
+			'in_correo'=>$in_correo,
+			'in_celular'=>$in_celular,
+			'in_facebook'=>$in_facebook,
+			'in_google_maps'=>$in_google_maps,
+			'in_nombre_strio_general'=>$in_nombre_strio_general
 		);
-		$this->Model_usuario->editar_tabla_sys('persona',$objeto,'idpersona',$idpersona);
-		$objeto1=array(
-			'imagen'=>$imagen,
-			'idrol'=>$idrol
-		);
-		$this->Model_usuario->editar_tabla_sys('usuario',$objeto1,'idusuario',$idusuario);
-	}*/
+		$this->Model_usuario->editar_tabla_sys('institucion',$objeto,'idinstitucion',$idinstitucion);
+
+	}
 
 
 
@@ -237,20 +255,21 @@ class Controller_usuario extends CI_Controller{
 		$idrol=$this->input->post('idrol');
 
 		$imagen=$_FILES['imagen']['tmp_name'];
-		echo $imagen;
-		die;
 		if ($imagen) {
+
 			if ($imagen_a) {
 				unlink("./assets/imagenes/".$imagen_a);
 			}
+
 			$ext=explode('.', $_FILES['imagen']['name']);
 			$img=round(microtime(true)).'.'.end($ext);
 			move_uploaded_file($_FILES['imagen']['tmp_name'],"assets/imagenes/user_".$img);
 			$imagen="user_".$img;
+
 		}else{
 			$imagen=$imagen_a;
 		}
-		
+
 		$objeto=array(
 			'expedido'=>$expedido,
 			'nombre'=>$nombre,
@@ -259,16 +278,31 @@ class Controller_usuario extends CI_Controller{
 			'celular'=>$celular
 		);
 		$this->Model_usuario->editar_tabla_sys('persona',$objeto,'idpersona',$idpersona);
+
 		$objeto1=array(
 			'imagen'=>$imagen,
 			'idrol'=>$idrol
 		);
 		$this->Model_usuario->editar_tabla_sys('usuario',$objeto1,'idusuario',$idusuario);
 	}
+	
 	//inicio menus
 	public function menus(){
 		$datos['contenido']="file_menus/adminMenus_index";
 		$this->load->view('plantilla',$datos);
+	}
+	
+	public function nuevoMenu(){
+		$datos['contenido']="file_menus/form_nuevoMenu";
+		$this->load->view('plantilla',$datos);
+	}
+	public function guardarNuevoMenu(){
+		$menus=$this->input->post('menus');
+		$objeto=array(
+			'menus'=>$menus,
+			'm_estado'=>'activo'
+		);
+		$this->Model_usuario->insertar_tabla_sys('menus',$objeto);
 	}
 	public function cambiar_estado_menus(){
 		$idmenus=$this->input->post('idmenus');
@@ -286,24 +320,45 @@ class Controller_usuario extends CI_Controller{
 		$obj=array('m_estado'=>'eliminar');
 		$this->Model_usuario->editar_tabla_sys('menus',$obj,'idmenus',$idmenus);
 	}
-	public function nuevoMenu(){
-		$datos['contenido']="file_menus/form_nuevoMenu";
-		$this->load->view('plantilla',$datos);
-	}
-	public function guardarNuevoMenu(){
-		$menus=$this->input->post('menus');
-		$objeto=array(
-			'menus'=>$menus,
-			'm_estado'=>'activo'
-		);
-		$this->Model_usuario->insertar_tabla_sys('menus',$objeto);
-	}
 	//fin menus
 	// inicio privilegios
 	public function privilegios(){
-		$datos['contenido']="file_privilegios/adminprivilegios_index";
+		$datos['contenido']="file_privilegios/adminPrivilegios_index";
 		$this->load->view('plantilla',$datos);
 	}
+	public function nuevoPrivilegio(){
+		$datos['contenido']="file_privilegios/form_nuevoPrivilegio";
+		$this->load->view('plantilla',$datos);
+	}
+	public function guardarNuevoPrivilegio(){
+		
+		$idrol=$this->input->post('idrol');
+		$idmenus=$this->input->post('idmenus');
+		$objeto=array(
+			
+			'p_estado'=>'activo',
+			'idrol'=>$idrol,
+			'idmenus'=>$idmenus
+		);
+		$this->Model_usuario->insertar_tabla_sys('privilegios',$objeto);
+	}
+	public function cambiar_estado_privilegio(){
+		$idprivilegios=$this->input->post('idprivilegios');
+		$p_estado=$this->input->post('p_estado');
+		if ($p_estado=='1') {
+			$valor_estado='inactivo';
+		}else{
+			$valor_estado='activo';
+		}
+		$obj=array('p_estado'=>$valor_estado);
+		$this->Model_usuario->editar_tabla_sys('privilegios',$obj,'idprivilegios',$idprivilegios);
+	}
+	public function eliminar_privilegios(){
+		$idprivilegios=$this->input->post('idprivilegios');
+		$obj=array('p_estado'=>'eliminar');
+		$this->Model_usuario->editar_tabla_sys('privilegios',$obj,'idprivilegios',$idprivilegios);
+	}
+	
 	// fin privelegios
 
 

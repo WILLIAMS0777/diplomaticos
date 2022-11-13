@@ -65,6 +65,7 @@ $route['hola'] = 'Controller_prueba/hola';
 //inicio
 $route['institucion'] = 'Controller_usuario/adminInstitucion';
 $route['editarInstitucion/(:any)'] = 'Controller_usuario/editarInstitucion/$1';
+$route['guardarEditarInstitucion'] = 'Controller_usuario/guardarEditarInstitucion';
 //fin
 
 //inicio usuario
@@ -82,6 +83,10 @@ $route['guardarEditarUsuario'] = 'Controller_usuario/guardarEditarUsuario';
 
 //inicio privilegios
 $route['privilegios'] = 'Controller_usuario/privilegios';
+$route['nuevoPrivilegio'] = 'Controller_usuario/nuevoPrivilegio';
+$route['guardarNuevoPrivilegio'] = 'Controller_usuario/guardarNuevoPrivilegio';
+$route['cambiar_estado_privilegio'] = 'Controller_usuario/cambiar_estado_privilegio';
+$route['eliminar_privilegios'] = 'Controller_usuario/eliminar_privilegios';
 //fin privilegios
 
 

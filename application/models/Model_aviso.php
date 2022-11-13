@@ -93,6 +93,7 @@ class Model_aviso extends CI_Model{
 		persona.paterno,
 		persona.materno,
 		socio.imagen,
+        hora_salida.hora_salida,
         dias.dia
 		FROM
 		programacion 

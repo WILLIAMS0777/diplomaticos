@@ -5,7 +5,7 @@
 </div>
 <div class="container-fluid">
 	<h3 align="center">ADMINISTRACION DE PRIVILEGIOS</h3>
-	<a href="<?php echo base_url(); ?>nuevoMenu" class="btn btn-primary"><i class="zmdi zmdi-plus"></i> &nbsp; NUEVO PRIVILEGIO</a>
+	<a href="<?php echo base_url(); ?>nuevoPrivilegio" class="btn btn-primary"><i class="zmdi zmdi-plus"></i> &nbsp; NUEVO PRIVILEGIO</a>
 	<div class="container-fluid">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
@@ -38,7 +38,7 @@
 								</td>
 								<td>
 									<a href="<?php echo base_url() ?>editarMenus/<?php echo $objeto->idprivilegios; ?>" class="btn btn-info btn-raised">EDITAR</a>
-									<a href="javascript:;" class="btn btn-danger btn-raised" onclick="eliminar_menus('<?php echo $objeto->idprivilegios; ?>')">ELIMINAR</a>
+									<a href="javascript:;" class="btn btn-danger btn-raised" onclick="eliminar_privilegios('<?php echo $objeto->idprivilegios; ?>')">ELIMINAR</a>
 								</td>
 							</tr>
 							<?php } ?>
@@ -54,12 +54,12 @@
 	/*$(document).ready( function (){
     	$('#table_id').DataTable();
 	});*/
-    /*function cambiar_estado_menus(idmenus,m_estado){
-		$.post('cambiar_estado_menus', {idmenus,m_estado}, function(){
+    function cambiar_estado_privilegio(idprivilegios,p_estado){
+		$.post('cambiar_estado_privilegio', {idprivilegios,p_estado}, function(){
 			window.location='';
 		});
-	}*/
-	/*function eliminar_menus(idmenus){
+	}
+	function eliminar_privilegios(idprivilegios){
 		swal({
 		  	title: 'USTED ESTA SEGURO DE ELIMINAR?',
 		  	text: "------------------------------------------",
@@ -70,9 +70,9 @@
 		  	confirmButtonText: '<i class="zmdi zmdi-run"></i> ACEPTAR',
 		  	cancelButtonText: '<i class="zmdi zmdi-close-circle"></i> CANCELAR'
 		}).then(function () {
-			$.post('eliminar_menus', {idmenus}, function(){
+			$.post('eliminar_privilegios', {idprivilegios}, function(){
 			window.location='';
 			});
 		});
-	}*/
+	}
 </script>
