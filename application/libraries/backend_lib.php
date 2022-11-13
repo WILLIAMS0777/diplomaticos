@@ -1,5 +1,5 @@
 <?php 
-/*	hola*/
+
 class backend_lib{
 	private $CI;
 	public function __construct() {
